@@ -5,6 +5,7 @@ SWAGGER_URL="https://developers.strava.com/swagger/swagger.json"
 
 main() {
     ensure_go_swagger "v0.27.0"
+    rm_gen
     gen
 }
 
