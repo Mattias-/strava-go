@@ -15,7 +15,6 @@ import (
 	"github.com/Mattias-/strava-go/client/clubs"
 	"github.com/Mattias-/strava-go/client/gears"
 	"github.com/Mattias-/strava-go/client/routes"
-	"github.com/Mattias-/strava-go/client/running_races"
 	"github.com/Mattias-/strava-go/client/segment_efforts"
 	"github.com/Mattias-/strava-go/client/segments"
 	"github.com/Mattias-/strava-go/client/streams"
@@ -69,7 +68,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *StravaAPIV
 	cli.Clubs = clubs.New(transport, formats)
 	cli.Gears = gears.New(transport, formats)
 	cli.Routes = routes.New(transport, formats)
-	cli.RunningRaces = running_races.New(transport, formats)
 	cli.SegmentEfforts = segment_efforts.New(transport, formats)
 	cli.Segments = segments.New(transport, formats)
 	cli.Streams = streams.New(transport, formats)
@@ -128,8 +126,6 @@ type StravaAPIV3 struct {
 
 	Routes routes.ClientService
 
-	RunningRaces running_races.ClientService
-
 	SegmentEfforts segment_efforts.ClientService
 
 	Segments segments.ClientService
@@ -149,7 +145,6 @@ func (c *StravaAPIV3) SetTransport(transport runtime.ClientTransport) {
 	c.Clubs.SetTransport(transport)
 	c.Gears.SetTransport(transport)
 	c.Routes.SetTransport(transport)
-	c.RunningRaces.SetTransport(transport)
 	c.SegmentEfforts.SetTransport(transport)
 	c.Segments.SetTransport(transport)
 	c.Streams.SetTransport(transport)

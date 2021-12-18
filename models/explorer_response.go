@@ -51,6 +51,8 @@ func (m *ExplorerResponse) validateSegments(formats strfmt.Registry) error {
 			if err := m.Segments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -83,6 +85,8 @@ func (m *ExplorerResponse) contextValidateSegments(ctx context.Context, formats 
 			if err := m.Segments[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

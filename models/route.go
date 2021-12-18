@@ -113,6 +113,8 @@ func (m *Route) validateAthlete(formats strfmt.Registry) error {
 		if err := m.Athlete.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("athlete")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("athlete")
 			}
 			return err
 		}
@@ -142,6 +144,8 @@ func (m *Route) validateMap(formats strfmt.Registry) error {
 		if err := m.Map.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("map")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("map")
 			}
 			return err
 		}
@@ -164,6 +168,8 @@ func (m *Route) validateSegments(formats strfmt.Registry) error {
 			if err := m.Segments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -214,6 +220,8 @@ func (m *Route) contextValidateAthlete(ctx context.Context, formats strfmt.Regis
 		if err := m.Athlete.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("athlete")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("athlete")
 			}
 			return err
 		}
@@ -228,6 +236,8 @@ func (m *Route) contextValidateMap(ctx context.Context, formats strfmt.Registry)
 		if err := m.Map.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("map")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("map")
 			}
 			return err
 		}
@@ -244,6 +254,8 @@ func (m *Route) contextValidateSegments(ctx context.Context, formats strfmt.Regi
 			if err := m.Segments[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

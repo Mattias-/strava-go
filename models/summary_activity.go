@@ -72,6 +72,9 @@ type SummaryActivity struct {
 	// Whether the logged-in athlete has kudoed this activity
 	HasKudoed bool `json:"has_kudoed,omitempty"`
 
+	// Whether the activity is muted
+	HideFromHome bool `json:"hide_from_home,omitempty"`
+
 	// The total work done in kilojoules during this activity. Rides only
 	Kilojoules float32 `json:"kilojoules,omitempty"`
 
@@ -186,6 +189,8 @@ func (m *SummaryActivity) UnmarshalJSON(raw []byte) error {
 
 		HasKudoed bool `json:"has_kudoed,omitempty"`
 
+		HideFromHome bool `json:"hide_from_home,omitempty"`
+
 		Kilojoules float32 `json:"kilojoules,omitempty"`
 
 		KudosCount int64 `json:"kudos_count,omitempty"`
@@ -267,6 +272,8 @@ func (m *SummaryActivity) UnmarshalJSON(raw []byte) error {
 	m.GearID = dataAO1.GearID
 
 	m.HasKudoed = dataAO1.HasKudoed
+
+	m.HideFromHome = dataAO1.HideFromHome
 
 	m.Kilojoules = dataAO1.Kilojoules
 
@@ -359,6 +366,8 @@ func (m SummaryActivity) MarshalJSON() ([]byte, error) {
 
 		HasKudoed bool `json:"has_kudoed,omitempty"`
 
+		HideFromHome bool `json:"hide_from_home,omitempty"`
+
 		Kilojoules float32 `json:"kilojoules,omitempty"`
 
 		KudosCount int64 `json:"kudos_count,omitempty"`
@@ -437,6 +446,8 @@ func (m SummaryActivity) MarshalJSON() ([]byte, error) {
 	dataAO1.GearID = m.GearID
 
 	dataAO1.HasKudoed = m.HasKudoed
+
+	dataAO1.HideFromHome = m.HideFromHome
 
 	dataAO1.Kilojoules = m.Kilojoules
 
@@ -547,6 +558,8 @@ func (m *SummaryActivity) validateAthlete(formats strfmt.Registry) error {
 		if err := m.Athlete.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("athlete")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("athlete")
 			}
 			return err
 		}
@@ -577,6 +590,8 @@ func (m *SummaryActivity) validateEndLatlng(formats strfmt.Registry) error {
 	if err := m.EndLatlng.Validate(formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
 			return ve.ValidateName("end_latlng")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("end_latlng")
 		}
 		return err
 	}
@@ -594,6 +609,8 @@ func (m *SummaryActivity) validateMap(formats strfmt.Registry) error {
 		if err := m.Map.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("map")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("map")
 			}
 			return err
 		}
@@ -637,6 +654,8 @@ func (m *SummaryActivity) validateStartLatlng(formats strfmt.Registry) error {
 	if err := m.StartLatlng.Validate(formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
 			return ve.ValidateName("start_latlng")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("start_latlng")
 		}
 		return err
 	}
@@ -653,6 +672,8 @@ func (m *SummaryActivity) validateType(formats strfmt.Registry) error {
 	if err := m.Type.Validate(formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
 			return ve.ValidateName("type")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("type")
 		}
 		return err
 	}
@@ -701,6 +722,8 @@ func (m *SummaryActivity) contextValidateAthlete(ctx context.Context, formats st
 		if err := m.Athlete.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("athlete")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("athlete")
 			}
 			return err
 		}
@@ -714,6 +737,8 @@ func (m *SummaryActivity) contextValidateEndLatlng(ctx context.Context, formats 
 	if err := m.EndLatlng.ContextValidate(ctx, formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
 			return ve.ValidateName("end_latlng")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("end_latlng")
 		}
 		return err
 	}
@@ -727,6 +752,8 @@ func (m *SummaryActivity) contextValidateMap(ctx context.Context, formats strfmt
 		if err := m.Map.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("map")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("map")
 			}
 			return err
 		}
@@ -740,6 +767,8 @@ func (m *SummaryActivity) contextValidateStartLatlng(ctx context.Context, format
 	if err := m.StartLatlng.ContextValidate(ctx, formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
 			return ve.ValidateName("start_latlng")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("start_latlng")
 		}
 		return err
 	}
@@ -752,6 +781,8 @@ func (m *SummaryActivity) contextValidateType(ctx context.Context, formats strfm
 	if err := m.Type.ContextValidate(ctx, formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
 			return ve.ValidateName("type")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("type")
 		}
 		return err
 	}

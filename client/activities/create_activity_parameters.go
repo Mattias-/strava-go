@@ -86,6 +86,12 @@ type CreateActivityParams struct {
 	*/
 	ElapsedTime int64
 
+	/* HideFromHome.
+
+	   Set to true to mute activity.
+	*/
+	HideFromHome *bool
+
 	/* Name.
 
 	   The name of the activity.
@@ -129,7 +135,18 @@ func (o *CreateActivityParams) WithDefaults() *CreateActivityParams {
 //
 // All values with no default are reset to their zero value.
 func (o *CreateActivityParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		hideFromHomeDefault = bool(false)
+	)
+
+	val := CreateActivityParams{
+		HideFromHome: &hideFromHomeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the create activity params
@@ -207,6 +224,17 @@ func (o *CreateActivityParams) WithElapsedTime(elapsedTime int64) *CreateActivit
 // SetElapsedTime adds the elapsedTime to the create activity params
 func (o *CreateActivityParams) SetElapsedTime(elapsedTime int64) {
 	o.ElapsedTime = elapsedTime
+}
+
+// WithHideFromHome adds the hideFromHome to the create activity params
+func (o *CreateActivityParams) WithHideFromHome(hideFromHome *bool) *CreateActivityParams {
+	o.SetHideFromHome(hideFromHome)
+	return o
+}
+
+// SetHideFromHome adds the hideFromHome to the create activity params
+func (o *CreateActivityParams) SetHideFromHome(hideFromHome *bool) {
+	o.HideFromHome = hideFromHome
 }
 
 // WithName adds the name to the create activity params
@@ -312,6 +340,21 @@ func (o *CreateActivityParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 	if fElapsedTime != "" {
 		if err := r.SetFormParam("elapsed_time", fElapsedTime); err != nil {
 			return err
+		}
+	}
+
+	if o.HideFromHome != nil {
+
+		// form param hide_from_home
+		var frHideFromHome bool
+		if o.HideFromHome != nil {
+			frHideFromHome = *o.HideFromHome
+		}
+		fHideFromHome := swag.FormatBool(frHideFromHome)
+		if fHideFromHome != "" {
+			if err := r.SetFormParam("hide_from_home", fHideFromHome); err != nil {
+				return err
+			}
 		}
 	}
 

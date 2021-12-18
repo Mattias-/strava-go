@@ -272,6 +272,8 @@ func (m *DetailedSegmentEffort) validateActivity(formats strfmt.Registry) error 
 		if err := m.Activity.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("activity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("activity")
 			}
 			return err
 		}
@@ -290,6 +292,8 @@ func (m *DetailedSegmentEffort) validateAthlete(formats strfmt.Registry) error {
 		if err := m.Athlete.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("athlete")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("athlete")
 			}
 			return err
 		}
@@ -342,6 +346,8 @@ func (m *DetailedSegmentEffort) validateSegment(formats strfmt.Registry) error {
 		if err := m.Segment.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("segment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("segment")
 			}
 			return err
 		}
@@ -383,6 +389,8 @@ func (m *DetailedSegmentEffort) contextValidateActivity(ctx context.Context, for
 		if err := m.Activity.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("activity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("activity")
 			}
 			return err
 		}
@@ -397,6 +405,8 @@ func (m *DetailedSegmentEffort) contextValidateAthlete(ctx context.Context, form
 		if err := m.Athlete.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("athlete")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("athlete")
 			}
 			return err
 		}
@@ -411,6 +421,8 @@ func (m *DetailedSegmentEffort) contextValidateSegment(ctx context.Context, form
 		if err := m.Segment.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("segment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("segment")
 			}
 			return err
 		}

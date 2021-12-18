@@ -52,6 +52,8 @@ func (m *Zones) validateHeartRate(formats strfmt.Registry) error {
 		if err := m.HeartRate.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("heart_rate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("heart_rate")
 			}
 			return err
 		}
@@ -69,6 +71,8 @@ func (m *Zones) validatePower(formats strfmt.Registry) error {
 		if err := m.Power.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("power")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("power")
 			}
 			return err
 		}
@@ -101,6 +105,8 @@ func (m *Zones) contextValidateHeartRate(ctx context.Context, formats strfmt.Reg
 		if err := m.HeartRate.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("heart_rate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("heart_rate")
 			}
 			return err
 		}
@@ -115,6 +121,8 @@ func (m *Zones) contextValidatePower(ctx context.Context, formats strfmt.Registr
 		if err := m.Power.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("power")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("power")
 			}
 			return err
 		}

@@ -107,6 +107,8 @@ func (m *ActivityStats) validateAllRideTotals(formats strfmt.Registry) error {
 		if err := m.AllRideTotals.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("all_ride_totals")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("all_ride_totals")
 			}
 			return err
 		}
@@ -124,6 +126,8 @@ func (m *ActivityStats) validateAllRunTotals(formats strfmt.Registry) error {
 		if err := m.AllRunTotals.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("all_run_totals")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("all_run_totals")
 			}
 			return err
 		}
@@ -141,6 +145,8 @@ func (m *ActivityStats) validateAllSwimTotals(formats strfmt.Registry) error {
 		if err := m.AllSwimTotals.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("all_swim_totals")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("all_swim_totals")
 			}
 			return err
 		}
@@ -158,6 +164,8 @@ func (m *ActivityStats) validateRecentRideTotals(formats strfmt.Registry) error 
 		if err := m.RecentRideTotals.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("recent_ride_totals")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("recent_ride_totals")
 			}
 			return err
 		}
@@ -175,6 +183,8 @@ func (m *ActivityStats) validateRecentRunTotals(formats strfmt.Registry) error {
 		if err := m.RecentRunTotals.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("recent_run_totals")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("recent_run_totals")
 			}
 			return err
 		}
@@ -192,6 +202,8 @@ func (m *ActivityStats) validateRecentSwimTotals(formats strfmt.Registry) error 
 		if err := m.RecentSwimTotals.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("recent_swim_totals")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("recent_swim_totals")
 			}
 			return err
 		}
@@ -209,6 +221,8 @@ func (m *ActivityStats) validateYtdRideTotals(formats strfmt.Registry) error {
 		if err := m.YtdRideTotals.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ytd_ride_totals")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ytd_ride_totals")
 			}
 			return err
 		}
@@ -226,6 +240,8 @@ func (m *ActivityStats) validateYtdRunTotals(formats strfmt.Registry) error {
 		if err := m.YtdRunTotals.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ytd_run_totals")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ytd_run_totals")
 			}
 			return err
 		}
@@ -243,6 +259,8 @@ func (m *ActivityStats) validateYtdSwimTotals(formats strfmt.Registry) error {
 		if err := m.YtdSwimTotals.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ytd_swim_totals")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ytd_swim_totals")
 			}
 			return err
 		}
@@ -303,6 +321,8 @@ func (m *ActivityStats) contextValidateAllRideTotals(ctx context.Context, format
 		if err := m.AllRideTotals.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("all_ride_totals")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("all_ride_totals")
 			}
 			return err
 		}
@@ -317,6 +337,8 @@ func (m *ActivityStats) contextValidateAllRunTotals(ctx context.Context, formats
 		if err := m.AllRunTotals.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("all_run_totals")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("all_run_totals")
 			}
 			return err
 		}
@@ -331,6 +353,8 @@ func (m *ActivityStats) contextValidateAllSwimTotals(ctx context.Context, format
 		if err := m.AllSwimTotals.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("all_swim_totals")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("all_swim_totals")
 			}
 			return err
 		}
@@ -345,6 +369,8 @@ func (m *ActivityStats) contextValidateRecentRideTotals(ctx context.Context, for
 		if err := m.RecentRideTotals.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("recent_ride_totals")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("recent_ride_totals")
 			}
 			return err
 		}
@@ -359,6 +385,8 @@ func (m *ActivityStats) contextValidateRecentRunTotals(ctx context.Context, form
 		if err := m.RecentRunTotals.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("recent_run_totals")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("recent_run_totals")
 			}
 			return err
 		}
@@ -373,6 +401,8 @@ func (m *ActivityStats) contextValidateRecentSwimTotals(ctx context.Context, for
 		if err := m.RecentSwimTotals.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("recent_swim_totals")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("recent_swim_totals")
 			}
 			return err
 		}
@@ -387,6 +417,8 @@ func (m *ActivityStats) contextValidateYtdRideTotals(ctx context.Context, format
 		if err := m.YtdRideTotals.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ytd_ride_totals")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ytd_ride_totals")
 			}
 			return err
 		}
@@ -401,6 +433,8 @@ func (m *ActivityStats) contextValidateYtdRunTotals(ctx context.Context, formats
 		if err := m.YtdRunTotals.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ytd_run_totals")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ytd_run_totals")
 			}
 			return err
 		}
@@ -415,6 +449,8 @@ func (m *ActivityStats) contextValidateYtdSwimTotals(ctx context.Context, format
 		if err := m.YtdSwimTotals.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ytd_swim_totals")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ytd_swim_totals")
 			}
 			return err
 		}

@@ -111,6 +111,8 @@ func (m *Lap) validateActivity(formats strfmt.Registry) error {
 		if err := m.Activity.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("activity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("activity")
 			}
 			return err
 		}
@@ -128,6 +130,8 @@ func (m *Lap) validateAthlete(formats strfmt.Registry) error {
 		if err := m.Athlete.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("athlete")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("athlete")
 			}
 			return err
 		}
@@ -184,6 +188,8 @@ func (m *Lap) contextValidateActivity(ctx context.Context, formats strfmt.Regist
 		if err := m.Activity.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("activity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("activity")
 			}
 			return err
 		}
@@ -198,6 +204,8 @@ func (m *Lap) contextValidateAthlete(ctx context.Context, formats strfmt.Registr
 		if err := m.Athlete.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("athlete")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("athlete")
 			}
 			return err
 		}

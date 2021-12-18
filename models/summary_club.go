@@ -8,6 +8,7 @@ package models
 import (
 	"context"
 	"encoding/json"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -20,6 +21,9 @@ import (
 // swagger:model summaryClub
 type SummaryClub struct {
 	MetaClub
+
+	// The activity types that count for a club. This takes precedence over sport_type.
+	ActivityTypes []ActivityType `json:"activity_types"`
 
 	// The club's city.
 	City string `json:"city,omitempty"`
@@ -45,7 +49,7 @@ type SummaryClub struct {
 	// URL to a 60x60 pixel profile picture.
 	ProfileMedium string `json:"profile_medium,omitempty"`
 
-	// sport type
+	// Deprecated. Prefer to use activity_types.
 	// Enum: [cycling running triathlon other]
 	SportType string `json:"sport_type,omitempty"`
 
@@ -70,6 +74,8 @@ func (m *SummaryClub) UnmarshalJSON(raw []byte) error {
 
 	// AO1
 	var dataAO1 struct {
+		ActivityTypes []ActivityType `json:"activity_types"`
+
 		City string `json:"city,omitempty"`
 
 		Country string `json:"country,omitempty"`
@@ -97,6 +103,8 @@ func (m *SummaryClub) UnmarshalJSON(raw []byte) error {
 	if err := swag.ReadJSON(raw, &dataAO1); err != nil {
 		return err
 	}
+
+	m.ActivityTypes = dataAO1.ActivityTypes
 
 	m.City = dataAO1.City
 
@@ -135,6 +143,8 @@ func (m SummaryClub) MarshalJSON() ([]byte, error) {
 	}
 	_parts = append(_parts, aO0)
 	var dataAO1 struct {
+		ActivityTypes []ActivityType `json:"activity_types"`
+
 		City string `json:"city,omitempty"`
 
 		Country string `json:"country,omitempty"`
@@ -159,6 +169,8 @@ func (m SummaryClub) MarshalJSON() ([]byte, error) {
 
 		Verified bool `json:"verified,omitempty"`
 	}
+
+	dataAO1.ActivityTypes = m.ActivityTypes
 
 	dataAO1.City = m.City
 
@@ -201,6 +213,10 @@ func (m *SummaryClub) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateActivityTypes(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSportType(formats); err != nil {
 		res = append(res, err)
 	}
@@ -208,6 +224,28 @@ func (m *SummaryClub) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *SummaryClub) validateActivityTypes(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.ActivityTypes) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.ActivityTypes); i++ {
+
+		if err := m.ActivityTypes[i].Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("activity_types" + "." + strconv.Itoa(i))
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("activity_types" + "." + strconv.Itoa(i))
+			}
+			return err
+		}
+
+	}
+
 	return nil
 }
 
@@ -254,9 +292,31 @@ func (m *SummaryClub) ContextValidate(ctx context.Context, formats strfmt.Regist
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateActivityTypes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *SummaryClub) contextValidateActivityTypes(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ActivityTypes); i++ {
+
+		if err := m.ActivityTypes[i].ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("activity_types" + "." + strconv.Itoa(i))
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("activity_types" + "." + strconv.Itoa(i))
+			}
+			return err
+		}
+
+	}
+
 	return nil
 }
 

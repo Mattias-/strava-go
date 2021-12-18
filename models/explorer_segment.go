@@ -158,6 +158,8 @@ func (m *ExplorerSegment) validateEndLatlng(formats strfmt.Registry) error {
 	if err := m.EndLatlng.Validate(formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
 			return ve.ValidateName("end_latlng")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("end_latlng")
 		}
 		return err
 	}
@@ -173,6 +175,8 @@ func (m *ExplorerSegment) validateStartLatlng(formats strfmt.Registry) error {
 	if err := m.StartLatlng.Validate(formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
 			return ve.ValidateName("start_latlng")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("start_latlng")
 		}
 		return err
 	}
@@ -203,6 +207,8 @@ func (m *ExplorerSegment) contextValidateEndLatlng(ctx context.Context, formats 
 	if err := m.EndLatlng.ContextValidate(ctx, formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
 			return ve.ValidateName("end_latlng")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("end_latlng")
 		}
 		return err
 	}
@@ -215,6 +221,8 @@ func (m *ExplorerSegment) contextValidateStartLatlng(ctx context.Context, format
 	if err := m.StartLatlng.ContextValidate(ctx, formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
 			return ve.ValidateName("start_latlng")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("start_latlng")
 		}
 		return err
 	}

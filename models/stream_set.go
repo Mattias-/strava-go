@@ -115,6 +115,8 @@ func (m *StreamSet) validateAltitude(formats strfmt.Registry) error {
 		if err := m.Altitude.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("altitude")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("altitude")
 			}
 			return err
 		}
@@ -132,6 +134,8 @@ func (m *StreamSet) validateCadence(formats strfmt.Registry) error {
 		if err := m.Cadence.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cadence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cadence")
 			}
 			return err
 		}
@@ -149,6 +153,8 @@ func (m *StreamSet) validateDistance(formats strfmt.Registry) error {
 		if err := m.Distance.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("distance")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("distance")
 			}
 			return err
 		}
@@ -166,6 +172,8 @@ func (m *StreamSet) validateGradeSmooth(formats strfmt.Registry) error {
 		if err := m.GradeSmooth.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("grade_smooth")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("grade_smooth")
 			}
 			return err
 		}
@@ -183,6 +191,8 @@ func (m *StreamSet) validateHeartrate(formats strfmt.Registry) error {
 		if err := m.Heartrate.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("heartrate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("heartrate")
 			}
 			return err
 		}
@@ -200,6 +210,8 @@ func (m *StreamSet) validateLatlng(formats strfmt.Registry) error {
 		if err := m.Latlng.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("latlng")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("latlng")
 			}
 			return err
 		}
@@ -217,6 +229,8 @@ func (m *StreamSet) validateMoving(formats strfmt.Registry) error {
 		if err := m.Moving.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("moving")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("moving")
 			}
 			return err
 		}
@@ -234,6 +248,8 @@ func (m *StreamSet) validateTemp(formats strfmt.Registry) error {
 		if err := m.Temp.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("temp")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("temp")
 			}
 			return err
 		}
@@ -251,6 +267,8 @@ func (m *StreamSet) validateTime(formats strfmt.Registry) error {
 		if err := m.Time.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("time")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("time")
 			}
 			return err
 		}
@@ -268,6 +286,8 @@ func (m *StreamSet) validateVelocitySmooth(formats strfmt.Registry) error {
 		if err := m.VelocitySmooth.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("velocity_smooth")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("velocity_smooth")
 			}
 			return err
 		}
@@ -285,6 +305,8 @@ func (m *StreamSet) validateWatts(formats strfmt.Registry) error {
 		if err := m.Watts.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("watts")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("watts")
 			}
 			return err
 		}
@@ -353,6 +375,8 @@ func (m *StreamSet) contextValidateAltitude(ctx context.Context, formats strfmt.
 		if err := m.Altitude.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("altitude")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("altitude")
 			}
 			return err
 		}
@@ -367,6 +391,8 @@ func (m *StreamSet) contextValidateCadence(ctx context.Context, formats strfmt.R
 		if err := m.Cadence.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cadence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cadence")
 			}
 			return err
 		}
@@ -381,6 +407,8 @@ func (m *StreamSet) contextValidateDistance(ctx context.Context, formats strfmt.
 		if err := m.Distance.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("distance")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("distance")
 			}
 			return err
 		}
@@ -395,6 +423,8 @@ func (m *StreamSet) contextValidateGradeSmooth(ctx context.Context, formats strf
 		if err := m.GradeSmooth.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("grade_smooth")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("grade_smooth")
 			}
 			return err
 		}
@@ -409,6 +439,8 @@ func (m *StreamSet) contextValidateHeartrate(ctx context.Context, formats strfmt
 		if err := m.Heartrate.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("heartrate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("heartrate")
 			}
 			return err
 		}
@@ -423,6 +455,8 @@ func (m *StreamSet) contextValidateLatlng(ctx context.Context, formats strfmt.Re
 		if err := m.Latlng.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("latlng")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("latlng")
 			}
 			return err
 		}
@@ -437,6 +471,8 @@ func (m *StreamSet) contextValidateMoving(ctx context.Context, formats strfmt.Re
 		if err := m.Moving.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("moving")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("moving")
 			}
 			return err
 		}
@@ -451,6 +487,8 @@ func (m *StreamSet) contextValidateTemp(ctx context.Context, formats strfmt.Regi
 		if err := m.Temp.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("temp")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("temp")
 			}
 			return err
 		}
@@ -465,6 +503,8 @@ func (m *StreamSet) contextValidateTime(ctx context.Context, formats strfmt.Regi
 		if err := m.Time.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("time")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("time")
 			}
 			return err
 		}
@@ -479,6 +519,8 @@ func (m *StreamSet) contextValidateVelocitySmooth(ctx context.Context, formats s
 		if err := m.VelocitySmooth.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("velocity_smooth")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("velocity_smooth")
 			}
 			return err
 		}
@@ -493,6 +535,8 @@ func (m *StreamSet) contextValidateWatts(ctx context.Context, formats strfmt.Reg
 		if err := m.Watts.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("watts")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("watts")
 			}
 			return err
 		}

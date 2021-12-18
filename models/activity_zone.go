@@ -69,6 +69,8 @@ func (m *ActivityZone) validateDistributionBuckets(formats strfmt.Registry) erro
 	if err := m.DistributionBuckets.Validate(formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
 			return ve.ValidateName("distribution_buckets")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("distribution_buckets")
 		}
 		return err
 	}
@@ -137,6 +139,8 @@ func (m *ActivityZone) contextValidateDistributionBuckets(ctx context.Context, f
 	if err := m.DistributionBuckets.ContextValidate(ctx, formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
 			return ve.ValidateName("distribution_buckets")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("distribution_buckets")
 		}
 		return err
 	}

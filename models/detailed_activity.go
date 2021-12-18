@@ -237,6 +237,8 @@ func (m *DetailedActivity) validateBestEfforts(formats strfmt.Registry) error {
 			if err := m.BestEfforts[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("best_efforts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("best_efforts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -257,6 +259,8 @@ func (m *DetailedActivity) validateGear(formats strfmt.Registry) error {
 		if err := m.Gear.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("gear")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("gear")
 			}
 			return err
 		}
@@ -280,6 +284,8 @@ func (m *DetailedActivity) validateLaps(formats strfmt.Registry) error {
 			if err := m.Laps[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("laps" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("laps" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -300,6 +306,8 @@ func (m *DetailedActivity) validatePhotos(formats strfmt.Registry) error {
 		if err := m.Photos.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("photos")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("photos")
 			}
 			return err
 		}
@@ -323,6 +331,8 @@ func (m *DetailedActivity) validateSegmentEfforts(formats strfmt.Registry) error
 			if err := m.SegmentEfforts[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("segment_efforts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segment_efforts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -348,6 +358,8 @@ func (m *DetailedActivity) validateSplitsMetric(formats strfmt.Registry) error {
 			if err := m.SplitsMetric[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("splits_metric" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("splits_metric" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -373,6 +385,8 @@ func (m *DetailedActivity) validateSplitsStandard(formats strfmt.Registry) error
 			if err := m.SplitsStandard[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("splits_standard" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("splits_standard" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -434,6 +448,8 @@ func (m *DetailedActivity) contextValidateBestEfforts(ctx context.Context, forma
 			if err := m.BestEfforts[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("best_efforts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("best_efforts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -450,6 +466,8 @@ func (m *DetailedActivity) contextValidateGear(ctx context.Context, formats strf
 		if err := m.Gear.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("gear")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("gear")
 			}
 			return err
 		}
@@ -466,6 +484,8 @@ func (m *DetailedActivity) contextValidateLaps(ctx context.Context, formats strf
 			if err := m.Laps[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("laps" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("laps" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -482,6 +502,8 @@ func (m *DetailedActivity) contextValidatePhotos(ctx context.Context, formats st
 		if err := m.Photos.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("photos")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("photos")
 			}
 			return err
 		}
@@ -498,6 +520,8 @@ func (m *DetailedActivity) contextValidateSegmentEfforts(ctx context.Context, fo
 			if err := m.SegmentEfforts[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("segment_efforts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segment_efforts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -516,6 +540,8 @@ func (m *DetailedActivity) contextValidateSplitsMetric(ctx context.Context, form
 			if err := m.SplitsMetric[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("splits_metric" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("splits_metric" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -534,6 +560,8 @@ func (m *DetailedActivity) contextValidateSplitsStandard(ctx context.Context, fo
 			if err := m.SplitsStandard[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("splits_standard" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("splits_standard" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

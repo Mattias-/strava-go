@@ -198,6 +198,8 @@ func (m *DetailedSegment) validateMap(formats strfmt.Registry) error {
 		if err := m.Map.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("map")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("map")
 			}
 			return err
 		}
@@ -244,6 +246,8 @@ func (m *DetailedSegment) contextValidateMap(ctx context.Context, formats strfmt
 		if err := m.Map.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("map")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("map")
 			}
 			return err
 		}

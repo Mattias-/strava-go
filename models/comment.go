@@ -63,6 +63,8 @@ func (m *Comment) validateAthlete(formats strfmt.Registry) error {
 		if err := m.Athlete.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("athlete")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("athlete")
 			}
 			return err
 		}
@@ -103,6 +105,8 @@ func (m *Comment) contextValidateAthlete(ctx context.Context, formats strfmt.Reg
 		if err := m.Athlete.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("athlete")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("athlete")
 			}
 			return err
 		}

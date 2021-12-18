@@ -27,6 +27,9 @@ type UpdatableActivity struct {
 	// Identifier for the gear associated with the activity. ‘none’ clears gear from activity
 	GearID string `json:"gear_id,omitempty"`
 
+	// Whether this activity is muted
+	HideFromHome bool `json:"hide_from_home,omitempty"`
+
 	// The name of the activity
 	Name string `json:"name,omitempty"`
 
@@ -59,6 +62,8 @@ func (m *UpdatableActivity) validateType(formats strfmt.Registry) error {
 	if err := m.Type.Validate(formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
 			return ve.ValidateName("type")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("type")
 		}
 		return err
 	}
@@ -85,6 +90,8 @@ func (m *UpdatableActivity) contextValidateType(ctx context.Context, formats str
 	if err := m.Type.ContextValidate(ctx, formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
 			return ve.ValidateName("type")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("type")
 		}
 		return err
 	}

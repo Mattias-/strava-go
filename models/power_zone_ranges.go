@@ -44,6 +44,8 @@ func (m *PowerZoneRanges) validateZones(formats strfmt.Registry) error {
 	if err := m.Zones.Validate(formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
 			return ve.ValidateName("zones")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("zones")
 		}
 		return err
 	}
@@ -70,6 +72,8 @@ func (m *PowerZoneRanges) contextValidateZones(ctx context.Context, formats strf
 	if err := m.Zones.ContextValidate(ctx, formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
 			return ve.ValidateName("zones")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("zones")
 		}
 		return err
 	}

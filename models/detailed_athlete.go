@@ -195,6 +195,8 @@ func (m *DetailedAthlete) validateBikes(formats strfmt.Registry) error {
 			if err := m.Bikes[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("bikes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("bikes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -220,6 +222,8 @@ func (m *DetailedAthlete) validateClubs(formats strfmt.Registry) error {
 			if err := m.Clubs[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("clubs" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("clubs" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -279,6 +283,8 @@ func (m *DetailedAthlete) validateShoes(formats strfmt.Registry) error {
 			if err := m.Shoes[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("shoes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("shoes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -324,6 +330,8 @@ func (m *DetailedAthlete) contextValidateBikes(ctx context.Context, formats strf
 			if err := m.Bikes[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("bikes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("bikes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -342,6 +350,8 @@ func (m *DetailedAthlete) contextValidateClubs(ctx context.Context, formats strf
 			if err := m.Clubs[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("clubs" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("clubs" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -360,6 +370,8 @@ func (m *DetailedAthlete) contextValidateShoes(ctx context.Context, formats strf
 			if err := m.Shoes[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("shoes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("shoes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

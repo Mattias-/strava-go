@@ -154,6 +154,8 @@ func (m *SummarySegment) validateAthletePrEffort(formats strfmt.Registry) error 
 		if err := m.AthletePrEffort.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("athlete_pr_effort")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("athlete_pr_effort")
 			}
 			return err
 		}
@@ -171,6 +173,8 @@ func (m *SummarySegment) validateAthleteSegmentStats(formats strfmt.Registry) er
 		if err := m.AthleteSegmentStats.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("athlete_segment_stats")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("athlete_segment_stats")
 			}
 			return err
 		}
@@ -187,6 +191,8 @@ func (m *SummarySegment) validateEndLatlng(formats strfmt.Registry) error {
 	if err := m.EndLatlng.Validate(formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
 			return ve.ValidateName("end_latlng")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("end_latlng")
 		}
 		return err
 	}
@@ -202,6 +208,8 @@ func (m *SummarySegment) validateStartLatlng(formats strfmt.Registry) error {
 	if err := m.StartLatlng.Validate(formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
 			return ve.ValidateName("start_latlng")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("start_latlng")
 		}
 		return err
 	}
@@ -241,6 +249,8 @@ func (m *SummarySegment) contextValidateAthletePrEffort(ctx context.Context, for
 		if err := m.AthletePrEffort.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("athlete_pr_effort")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("athlete_pr_effort")
 			}
 			return err
 		}
@@ -255,6 +265,8 @@ func (m *SummarySegment) contextValidateAthleteSegmentStats(ctx context.Context,
 		if err := m.AthleteSegmentStats.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("athlete_segment_stats")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("athlete_segment_stats")
 			}
 			return err
 		}
@@ -268,6 +280,8 @@ func (m *SummarySegment) contextValidateEndLatlng(ctx context.Context, formats s
 	if err := m.EndLatlng.ContextValidate(ctx, formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
 			return ve.ValidateName("end_latlng")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("end_latlng")
 		}
 		return err
 	}
@@ -280,6 +294,8 @@ func (m *SummarySegment) contextValidateStartLatlng(ctx context.Context, formats
 	if err := m.StartLatlng.ContextValidate(ctx, formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
 			return ve.ValidateName("start_latlng")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("start_latlng")
 		}
 		return err
 	}

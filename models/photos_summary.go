@@ -48,6 +48,8 @@ func (m *PhotosSummary) validatePrimary(formats strfmt.Registry) error {
 		if err := m.Primary.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("primary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("primary")
 			}
 			return err
 		}
@@ -76,6 +78,8 @@ func (m *PhotosSummary) contextValidatePrimary(ctx context.Context, formats strf
 		if err := m.Primary.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("primary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("primary")
 			}
 			return err
 		}
