@@ -48,9 +48,9 @@ type ClientService interface {
 }
 
 /*
-  CreateActivity creates an activity
+CreateActivity creates an activity
 
-  Creates a manual activity for an athlete, requires activity:write scope.
+Creates a manual activity for an athlete, requires activity:write scope.
 */
 func (a *Client) CreateActivity(params *CreateActivityParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateActivityCreated, error) {
 	// TODO: Validate the params before sending
@@ -88,9 +88,9 @@ func (a *Client) CreateActivity(params *CreateActivityParams, authInfo runtime.C
 }
 
 /*
-  GetActivityByID gets activity
+GetActivityByID gets activity
 
-  Returns the given activity that is owned by the authenticated athlete. Requires activity:read for Everyone and Followers activities. Requires activity:read_all for Only Me activities.
+Returns the given activity that is owned by the authenticated athlete. Requires activity:read for Everyone and Followers activities. Requires activity:read_all for Only Me activities.
 */
 func (a *Client) GetActivityByID(params *GetActivityByIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetActivityByIDOK, error) {
 	// TODO: Validate the params before sending
@@ -128,9 +128,9 @@ func (a *Client) GetActivityByID(params *GetActivityByIDParams, authInfo runtime
 }
 
 /*
-  GetCommentsByActivityID lists activity comments
+GetCommentsByActivityID lists activity comments
 
-  Returns the comments on the given activity. Requires activity:read for Everyone and Followers activities. Requires activity:read_all for Only Me activities.
+Returns the comments on the given activity. Requires activity:read for Everyone and Followers activities. Requires activity:read_all for Only Me activities.
 */
 func (a *Client) GetCommentsByActivityID(params *GetCommentsByActivityIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetCommentsByActivityIDOK, error) {
 	// TODO: Validate the params before sending
@@ -168,9 +168,9 @@ func (a *Client) GetCommentsByActivityID(params *GetCommentsByActivityIDParams, 
 }
 
 /*
-  GetKudoersByActivityID lists activity kudoers
+GetKudoersByActivityID lists activity kudoers
 
-  Returns the athletes who kudoed an activity identified by an identifier. Requires activity:read for Everyone and Followers activities. Requires activity:read_all for Only Me activities.
+Returns the athletes who kudoed an activity identified by an identifier. Requires activity:read for Everyone and Followers activities. Requires activity:read_all for Only Me activities.
 */
 func (a *Client) GetKudoersByActivityID(params *GetKudoersByActivityIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetKudoersByActivityIDOK, error) {
 	// TODO: Validate the params before sending
@@ -208,9 +208,9 @@ func (a *Client) GetKudoersByActivityID(params *GetKudoersByActivityIDParams, au
 }
 
 /*
-  GetLapsByActivityID lists activity laps
+GetLapsByActivityID lists activity laps
 
-  Returns the laps of an activity identified by an identifier. Requires activity:read for Everyone and Followers activities. Requires activity:read_all for Only Me activities.
+Returns the laps of an activity identified by an identifier. Requires activity:read for Everyone and Followers activities. Requires activity:read_all for Only Me activities.
 */
 func (a *Client) GetLapsByActivityID(params *GetLapsByActivityIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetLapsByActivityIDOK, error) {
 	// TODO: Validate the params before sending
@@ -248,9 +248,9 @@ func (a *Client) GetLapsByActivityID(params *GetLapsByActivityIDParams, authInfo
 }
 
 /*
-  GetLoggedInAthleteActivities lists athlete activities
+GetLoggedInAthleteActivities lists athlete activities
 
-  Returns the activities of an athlete for a specific identifier. Requires activity:read. Only Me activities will be filtered out unless requested by a token with activity:read_all.
+Returns the activities of an athlete for a specific identifier. Requires activity:read. Only Me activities will be filtered out unless requested by a token with activity:read_all.
 */
 func (a *Client) GetLoggedInAthleteActivities(params *GetLoggedInAthleteActivitiesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetLoggedInAthleteActivitiesOK, error) {
 	// TODO: Validate the params before sending
@@ -288,9 +288,9 @@ func (a *Client) GetLoggedInAthleteActivities(params *GetLoggedInAthleteActiviti
 }
 
 /*
-  GetZonesByActivityID gets activity zones
+GetZonesByActivityID gets activity zones
 
-  Summit Feature. Returns the zones of a given activity. Requires activity:read for Everyone and Followers activities. Requires activity:read_all for Only Me activities.
+Summit Feature. Returns the zones of a given activity. Requires activity:read for Everyone and Followers activities. Requires activity:read_all for Only Me activities.
 */
 func (a *Client) GetZonesByActivityID(params *GetZonesByActivityIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetZonesByActivityIDOK, error) {
 	// TODO: Validate the params before sending
@@ -328,9 +328,9 @@ func (a *Client) GetZonesByActivityID(params *GetZonesByActivityIDParams, authIn
 }
 
 /*
-  UpdateActivityByID updates activity
+UpdateActivityByID updates activity
 
-  Updates the given activity that is owned by the authenticated athlete. Requires activity:write. Also requires activity:read_all in order to update Only Me activities
+Updates the given activity that is owned by the authenticated athlete. Requires activity:write. Also requires activity:read_all in order to update Only Me activities
 */
 func (a *Client) UpdateActivityByID(params *UpdateActivityByIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateActivityByIDOK, error) {
 	// TODO: Validate the params before sending

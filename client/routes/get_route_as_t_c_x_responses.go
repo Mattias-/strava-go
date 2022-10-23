@@ -46,14 +46,44 @@ func NewGetRouteAsTCXOK() *GetRouteAsTCXOK {
 	return &GetRouteAsTCXOK{}
 }
 
-/* GetRouteAsTCXOK describes a response with status code 200, with default header values.
+/*
+GetRouteAsTCXOK describes a response with status code 200, with default header values.
 
 A TCX file with the route.
 */
 type GetRouteAsTCXOK struct {
 }
 
+// IsSuccess returns true when this get route as t c x o k response has a 2xx status code
+func (o *GetRouteAsTCXOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get route as t c x o k response has a 3xx status code
+func (o *GetRouteAsTCXOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get route as t c x o k response has a 4xx status code
+func (o *GetRouteAsTCXOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get route as t c x o k response has a 5xx status code
+func (o *GetRouteAsTCXOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get route as t c x o k response a status code equal to that given
+func (o *GetRouteAsTCXOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRouteAsTCXOK) Error() string {
+	return fmt.Sprintf("[GET /routes/{id}/export_tcx][%d] getRouteAsTCXOK ", 200)
+}
+
+func (o *GetRouteAsTCXOK) String() string {
 	return fmt.Sprintf("[GET /routes/{id}/export_tcx][%d] getRouteAsTCXOK ", 200)
 }
 
@@ -69,7 +99,8 @@ func NewGetRouteAsTCXDefault(code int) *GetRouteAsTCXDefault {
 	}
 }
 
-/* GetRouteAsTCXDefault describes a response with status code -1, with default header values.
+/*
+GetRouteAsTCXDefault describes a response with status code -1, with default header values.
 
 Unexpected error.
 */
@@ -84,9 +115,39 @@ func (o *GetRouteAsTCXDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get route as t c x default response has a 2xx status code
+func (o *GetRouteAsTCXDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get route as t c x default response has a 3xx status code
+func (o *GetRouteAsTCXDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get route as t c x default response has a 4xx status code
+func (o *GetRouteAsTCXDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get route as t c x default response has a 5xx status code
+func (o *GetRouteAsTCXDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get route as t c x default response a status code equal to that given
+func (o *GetRouteAsTCXDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetRouteAsTCXDefault) Error() string {
 	return fmt.Sprintf("[GET /routes/{id}/export_tcx][%d] getRouteAsTCX default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetRouteAsTCXDefault) String() string {
+	return fmt.Sprintf("[GET /routes/{id}/export_tcx][%d] getRouteAsTCX default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetRouteAsTCXDefault) GetPayload() *models.Fault {
 	return o.Payload
 }

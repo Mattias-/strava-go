@@ -40,9 +40,9 @@ type ClientService interface {
 }
 
 /*
-  GetRouteAsGPX exports route g p x
+GetRouteAsGPX exports route g p x
 
-  Returns a GPX file of the route. Requires read_all scope for private routes.
+Returns a GPX file of the route. Requires read_all scope for private routes.
 */
 func (a *Client) GetRouteAsGPX(params *GetRouteAsGPXParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRouteAsGPXOK, error) {
 	// TODO: Validate the params before sending
@@ -80,9 +80,9 @@ func (a *Client) GetRouteAsGPX(params *GetRouteAsGPXParams, authInfo runtime.Cli
 }
 
 /*
-  GetRouteAsTCX exports route t c x
+GetRouteAsTCX exports route t c x
 
-  Returns a TCX file of the route. Requires read_all scope for private routes.
+Returns a TCX file of the route. Requires read_all scope for private routes.
 */
 func (a *Client) GetRouteAsTCX(params *GetRouteAsTCXParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRouteAsTCXOK, error) {
 	// TODO: Validate the params before sending
@@ -120,9 +120,9 @@ func (a *Client) GetRouteAsTCX(params *GetRouteAsTCXParams, authInfo runtime.Cli
 }
 
 /*
-  GetRouteByID gets route
+GetRouteByID gets route
 
-  Returns a route using its identifier. Requires read_all scope for private routes.
+Returns a route using its identifier. Requires read_all scope for private routes.
 */
 func (a *Client) GetRouteByID(params *GetRouteByIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRouteByIDOK, error) {
 	// TODO: Validate the params before sending
@@ -160,9 +160,9 @@ func (a *Client) GetRouteByID(params *GetRouteByIDParams, authInfo runtime.Clien
 }
 
 /*
-  GetRoutesByAthleteID lists athlete routes
+GetRoutesByAthleteID lists athlete routes
 
-  Returns a list of the routes created by the authenticated athlete. Private routes are filtered out unless requested by a token with read_all scope.
+Returns a list of the routes created by the authenticated athlete. Private routes are filtered out unless requested by a token with read_all scope.
 */
 func (a *Client) GetRoutesByAthleteID(params *GetRoutesByAthleteIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRoutesByAthleteIDOK, error) {
 	// TODO: Validate the params before sending

@@ -53,10 +53,12 @@ func NewGetLoggedInAthleteClubsParamsWithHTTPClient(client *http.Client) *GetLog
 	}
 }
 
-/* GetLoggedInAthleteClubsParams contains all the parameters to send to the API endpoint
-   for the get logged in athlete clubs operation.
+/*
+GetLoggedInAthleteClubsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get logged in athlete clubs operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLoggedInAthleteClubsParams struct {
 

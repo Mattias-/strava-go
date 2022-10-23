@@ -34,9 +34,9 @@ type ClientService interface {
 }
 
 /*
-  GetGearByID gets equipment
+GetGearByID gets equipment
 
-  Returns an equipment using its identifier.
+Returns an equipment using its identifier.
 */
 func (a *Client) GetGearByID(params *GetGearByIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetGearByIDOK, error) {
 	// TODO: Validate the params before sending

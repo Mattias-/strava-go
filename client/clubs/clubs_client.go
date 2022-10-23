@@ -42,9 +42,9 @@ type ClientService interface {
 }
 
 /*
-  GetClubActivitiesByID lists club activities
+GetClubActivitiesByID lists club activities
 
-  Retrieve recent activities from members of a specific club. The authenticated athlete must belong to the requested club in order to hit this endpoint. Pagination is supported. Athlete profile visibility is respected for all activities.
+Retrieve recent activities from members of a specific club. The authenticated athlete must belong to the requested club in order to hit this endpoint. Pagination is supported. Athlete profile visibility is respected for all activities.
 */
 func (a *Client) GetClubActivitiesByID(params *GetClubActivitiesByIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetClubActivitiesByIDOK, error) {
 	// TODO: Validate the params before sending
@@ -82,9 +82,9 @@ func (a *Client) GetClubActivitiesByID(params *GetClubActivitiesByIDParams, auth
 }
 
 /*
-  GetClubAdminsByID lists club administrators
+GetClubAdminsByID lists club administrators
 
-  Returns a list of the administrators of a given club.
+Returns a list of the administrators of a given club.
 */
 func (a *Client) GetClubAdminsByID(params *GetClubAdminsByIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetClubAdminsByIDOK, error) {
 	// TODO: Validate the params before sending
@@ -122,9 +122,9 @@ func (a *Client) GetClubAdminsByID(params *GetClubAdminsByIDParams, authInfo run
 }
 
 /*
-  GetClubByID gets club
+GetClubByID gets club
 
-  Returns a given club using its identifier.
+Returns a given club using its identifier.
 */
 func (a *Client) GetClubByID(params *GetClubByIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetClubByIDOK, error) {
 	// TODO: Validate the params before sending
@@ -162,9 +162,9 @@ func (a *Client) GetClubByID(params *GetClubByIDParams, authInfo runtime.ClientA
 }
 
 /*
-  GetClubMembersByID lists club members
+GetClubMembersByID lists club members
 
-  Returns a list of the athletes who are members of a given club.
+Returns a list of the athletes who are members of a given club.
 */
 func (a *Client) GetClubMembersByID(params *GetClubMembersByIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetClubMembersByIDOK, error) {
 	// TODO: Validate the params before sending
@@ -202,9 +202,9 @@ func (a *Client) GetClubMembersByID(params *GetClubMembersByIDParams, authInfo r
 }
 
 /*
-  GetLoggedInAthleteClubs lists athlete clubs
+GetLoggedInAthleteClubs lists athlete clubs
 
-  Returns a list of the clubs whose membership includes the authenticated athlete.
+Returns a list of the clubs whose membership includes the authenticated athlete.
 */
 func (a *Client) GetLoggedInAthleteClubs(params *GetLoggedInAthleteClubsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetLoggedInAthleteClubsOK, error) {
 	// TODO: Validate the params before sending

@@ -46,7 +46,8 @@ func NewGetSegmentEffortStreamsOK() *GetSegmentEffortStreamsOK {
 	return &GetSegmentEffortStreamsOK{}
 }
 
-/* GetSegmentEffortStreamsOK describes a response with status code 200, with default header values.
+/*
+GetSegmentEffortStreamsOK describes a response with status code 200, with default header values.
 
 The set of requested streams.
 */
@@ -54,9 +55,39 @@ type GetSegmentEffortStreamsOK struct {
 	Payload *models.StreamSet
 }
 
+// IsSuccess returns true when this get segment effort streams o k response has a 2xx status code
+func (o *GetSegmentEffortStreamsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get segment effort streams o k response has a 3xx status code
+func (o *GetSegmentEffortStreamsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get segment effort streams o k response has a 4xx status code
+func (o *GetSegmentEffortStreamsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get segment effort streams o k response has a 5xx status code
+func (o *GetSegmentEffortStreamsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get segment effort streams o k response a status code equal to that given
+func (o *GetSegmentEffortStreamsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetSegmentEffortStreamsOK) Error() string {
 	return fmt.Sprintf("[GET /segment_efforts/{id}/streams][%d] getSegmentEffortStreamsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetSegmentEffortStreamsOK) String() string {
+	return fmt.Sprintf("[GET /segment_efforts/{id}/streams][%d] getSegmentEffortStreamsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetSegmentEffortStreamsOK) GetPayload() *models.StreamSet {
 	return o.Payload
 }
@@ -80,7 +111,8 @@ func NewGetSegmentEffortStreamsDefault(code int) *GetSegmentEffortStreamsDefault
 	}
 }
 
-/* GetSegmentEffortStreamsDefault describes a response with status code -1, with default header values.
+/*
+GetSegmentEffortStreamsDefault describes a response with status code -1, with default header values.
 
 Unexpected error.
 */
@@ -95,9 +127,39 @@ func (o *GetSegmentEffortStreamsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get segment effort streams default response has a 2xx status code
+func (o *GetSegmentEffortStreamsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get segment effort streams default response has a 3xx status code
+func (o *GetSegmentEffortStreamsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get segment effort streams default response has a 4xx status code
+func (o *GetSegmentEffortStreamsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get segment effort streams default response has a 5xx status code
+func (o *GetSegmentEffortStreamsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get segment effort streams default response a status code equal to that given
+func (o *GetSegmentEffortStreamsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetSegmentEffortStreamsDefault) Error() string {
 	return fmt.Sprintf("[GET /segment_efforts/{id}/streams][%d] getSegmentEffortStreams default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetSegmentEffortStreamsDefault) String() string {
+	return fmt.Sprintf("[GET /segment_efforts/{id}/streams][%d] getSegmentEffortStreams default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetSegmentEffortStreamsDefault) GetPayload() *models.Fault {
 	return o.Payload
 }

@@ -53,10 +53,12 @@ func NewGetRouteAsTCXParamsWithHTTPClient(client *http.Client) *GetRouteAsTCXPar
 	}
 }
 
-/* GetRouteAsTCXParams contains all the parameters to send to the API endpoint
-   for the get route as t c x operation.
+/*
+GetRouteAsTCXParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get route as t c x operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRouteAsTCXParams struct {
 

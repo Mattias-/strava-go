@@ -53,10 +53,12 @@ func NewCreateActivityParamsWithHTTPClient(client *http.Client) *CreateActivityP
 	}
 }
 
-/* CreateActivityParams contains all the parameters to send to the API endpoint
-   for the create activity operation.
+/*
+CreateActivityParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the create activity operation.
+
+	Typically these are written to a http.Request.
 */
 type CreateActivityParams struct {
 
@@ -86,17 +88,17 @@ type CreateActivityParams struct {
 	*/
 	ElapsedTime int64
 
-	/* HideFromHome.
-
-	   Set to true to mute activity.
-	*/
-	HideFromHome *bool
-
 	/* Name.
 
 	   The name of the activity.
 	*/
 	Name string
+
+	/* SportType.
+
+	   Sport type of activity. For example - Run, MountainBikeRide, Ride, etc.
+	*/
+	SportType string
 
 	/* StartDateLocal.
 
@@ -116,7 +118,7 @@ type CreateActivityParams struct {
 
 	   Type of activity. For example - Run, Ride etc.
 	*/
-	Type string
+	Type *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -135,18 +137,7 @@ func (o *CreateActivityParams) WithDefaults() *CreateActivityParams {
 //
 // All values with no default are reset to their zero value.
 func (o *CreateActivityParams) SetDefaults() {
-	var (
-		hideFromHomeDefault = bool(false)
-	)
-
-	val := CreateActivityParams{
-		HideFromHome: &hideFromHomeDefault,
-	}
-
-	val.timeout = o.timeout
-	val.Context = o.Context
-	val.HTTPClient = o.HTTPClient
-	*o = val
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the create activity params
@@ -226,17 +217,6 @@ func (o *CreateActivityParams) SetElapsedTime(elapsedTime int64) {
 	o.ElapsedTime = elapsedTime
 }
 
-// WithHideFromHome adds the hideFromHome to the create activity params
-func (o *CreateActivityParams) WithHideFromHome(hideFromHome *bool) *CreateActivityParams {
-	o.SetHideFromHome(hideFromHome)
-	return o
-}
-
-// SetHideFromHome adds the hideFromHome to the create activity params
-func (o *CreateActivityParams) SetHideFromHome(hideFromHome *bool) {
-	o.HideFromHome = hideFromHome
-}
-
 // WithName adds the name to the create activity params
 func (o *CreateActivityParams) WithName(name string) *CreateActivityParams {
 	o.SetName(name)
@@ -246,6 +226,17 @@ func (o *CreateActivityParams) WithName(name string) *CreateActivityParams {
 // SetName adds the name to the create activity params
 func (o *CreateActivityParams) SetName(name string) {
 	o.Name = name
+}
+
+// WithSportType adds the sportType to the create activity params
+func (o *CreateActivityParams) WithSportType(sportType string) *CreateActivityParams {
+	o.SetSportType(sportType)
+	return o
+}
+
+// SetSportType adds the sportType to the create activity params
+func (o *CreateActivityParams) SetSportType(sportType string) {
+	o.SportType = sportType
 }
 
 // WithStartDateLocal adds the startDateLocal to the create activity params
@@ -271,13 +262,13 @@ func (o *CreateActivityParams) SetTrainer(trainer *int64) {
 }
 
 // WithType adds the typeVar to the create activity params
-func (o *CreateActivityParams) WithType(typeVar string) *CreateActivityParams {
+func (o *CreateActivityParams) WithType(typeVar *string) *CreateActivityParams {
 	o.SetType(typeVar)
 	return o
 }
 
 // SetType adds the type to the create activity params
-func (o *CreateActivityParams) SetType(typeVar string) {
+func (o *CreateActivityParams) SetType(typeVar *string) {
 	o.Type = typeVar
 }
 
@@ -343,26 +334,20 @@ func (o *CreateActivityParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 		}
 	}
 
-	if o.HideFromHome != nil {
-
-		// form param hide_from_home
-		var frHideFromHome bool
-		if o.HideFromHome != nil {
-			frHideFromHome = *o.HideFromHome
-		}
-		fHideFromHome := swag.FormatBool(frHideFromHome)
-		if fHideFromHome != "" {
-			if err := r.SetFormParam("hide_from_home", fHideFromHome); err != nil {
-				return err
-			}
-		}
-	}
-
 	// form param name
 	frName := o.Name
 	fName := frName
 	if fName != "" {
 		if err := r.SetFormParam("name", fName); err != nil {
+			return err
+		}
+	}
+
+	// form param sport_type
+	frSportType := o.SportType
+	fSportType := frSportType
+	if fSportType != "" {
+		if err := r.SetFormParam("sport_type", fSportType); err != nil {
 			return err
 		}
 	}
@@ -391,12 +376,18 @@ func (o *CreateActivityParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 		}
 	}
 
-	// form param type
-	frType := o.Type
-	fType := frType
-	if fType != "" {
-		if err := r.SetFormParam("type", fType); err != nil {
-			return err
+	if o.Type != nil {
+
+		// form param type
+		var frType string
+		if o.Type != nil {
+			frType = *o.Type
+		}
+		fType := frType
+		if fType != "" {
+			if err := r.SetFormParam("type", fType); err != nil {
+				return err
+			}
 		}
 	}
 

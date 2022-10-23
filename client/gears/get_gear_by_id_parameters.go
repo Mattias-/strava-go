@@ -52,10 +52,12 @@ func NewGetGearByIDParamsWithHTTPClient(client *http.Client) *GetGearByIDParams 
 	}
 }
 
-/* GetGearByIDParams contains all the parameters to send to the API endpoint
-   for the get gear by Id operation.
+/*
+GetGearByIDParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get gear by Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGearByIDParams struct {
 

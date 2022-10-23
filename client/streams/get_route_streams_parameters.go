@@ -53,10 +53,12 @@ func NewGetRouteStreamsParamsWithHTTPClient(client *http.Client) *GetRouteStream
 	}
 }
 
-/* GetRouteStreamsParams contains all the parameters to send to the API endpoint
-   for the get route streams operation.
+/*
+GetRouteStreamsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get route streams operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRouteStreamsParams struct {
 

@@ -36,9 +36,9 @@ type ClientService interface {
 }
 
 /*
-  GetEffortsBySegmentID lists segment efforts
+GetEffortsBySegmentID lists segment efforts
 
-  Returns a set of the authenticated athlete's segment efforts for a given segment.  Requires subscription.
+Returns a set of the authenticated athlete's segment efforts for a given segment.  Requires subscription.
 */
 func (a *Client) GetEffortsBySegmentID(params *GetEffortsBySegmentIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetEffortsBySegmentIDOK, error) {
 	// TODO: Validate the params before sending
@@ -76,9 +76,9 @@ func (a *Client) GetEffortsBySegmentID(params *GetEffortsBySegmentIDParams, auth
 }
 
 /*
-  GetSegmentEffortByID gets segment effort
+GetSegmentEffortByID gets segment effort
 
-  Returns a segment effort from an activity that is owned by the authenticated athlete. Requires subscription.
+Returns a segment effort from an activity that is owned by the authenticated athlete. Requires subscription.
 */
 func (a *Client) GetSegmentEffortByID(params *GetSegmentEffortByIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetSegmentEffortByIDOK, error) {
 	// TODO: Validate the params before sending

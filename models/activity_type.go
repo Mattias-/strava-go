@@ -14,14 +14,18 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ActivityType An enumeration of the types an activity may have.
+// ActivityType An enumeration of the types an activity may have. Note that this enumeration does not include new sport types (e.g. MountainBikeRide, EMountainBikeRide), activities with these sport types will have the corresponding activity type (e.g. Ride for MountainBikeRide, EBikeRide for EMountainBikeRide)
 //
 // swagger:model activityType
 type ActivityType string
 
 func NewActivityType(value ActivityType) *ActivityType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated ActivityType.
+func (m ActivityType) Pointer() *ActivityType {
+	return &m
 }
 
 const (

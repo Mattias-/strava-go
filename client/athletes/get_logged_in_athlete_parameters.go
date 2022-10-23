@@ -52,10 +52,12 @@ func NewGetLoggedInAthleteParamsWithHTTPClient(client *http.Client) *GetLoggedIn
 	}
 }
 
-/* GetLoggedInAthleteParams contains all the parameters to send to the API endpoint
-   for the get logged in athlete operation.
+/*
+GetLoggedInAthleteParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get logged in athlete operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLoggedInAthleteParams struct {
 	timeout    time.Duration

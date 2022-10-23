@@ -53,10 +53,12 @@ func NewGetRouteAsGPXParamsWithHTTPClient(client *http.Client) *GetRouteAsGPXPar
 	}
 }
 
-/* GetRouteAsGPXParams contains all the parameters to send to the API endpoint
-   for the get route as g p x operation.
+/*
+GetRouteAsGPXParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get route as g p x operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRouteAsGPXParams struct {
 

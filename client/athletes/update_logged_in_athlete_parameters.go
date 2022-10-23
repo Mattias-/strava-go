@@ -53,10 +53,12 @@ func NewUpdateLoggedInAthleteParamsWithHTTPClient(client *http.Client) *UpdateLo
 	}
 }
 
-/* UpdateLoggedInAthleteParams contains all the parameters to send to the API endpoint
-   for the update logged in athlete operation.
+/*
+UpdateLoggedInAthleteParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the update logged in athlete operation.
+
+	Typically these are written to a http.Request.
 */
 type UpdateLoggedInAthleteParams struct {
 

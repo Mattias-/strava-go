@@ -53,10 +53,12 @@ func NewGetUploadByIDParamsWithHTTPClient(client *http.Client) *GetUploadByIDPar
 	}
 }
 
-/* GetUploadByIDParams contains all the parameters to send to the API endpoint
-   for the get upload by Id operation.
+/*
+GetUploadByIDParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get upload by Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetUploadByIDParams struct {
 

@@ -46,7 +46,8 @@ func NewGetLapsByActivityIDOK() *GetLapsByActivityIDOK {
 	return &GetLapsByActivityIDOK{}
 }
 
-/* GetLapsByActivityIDOK describes a response with status code 200, with default header values.
+/*
+GetLapsByActivityIDOK describes a response with status code 200, with default header values.
 
 Activity Laps.
 */
@@ -54,9 +55,39 @@ type GetLapsByActivityIDOK struct {
 	Payload []*models.Lap
 }
 
+// IsSuccess returns true when this get laps by activity Id o k response has a 2xx status code
+func (o *GetLapsByActivityIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get laps by activity Id o k response has a 3xx status code
+func (o *GetLapsByActivityIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get laps by activity Id o k response has a 4xx status code
+func (o *GetLapsByActivityIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get laps by activity Id o k response has a 5xx status code
+func (o *GetLapsByActivityIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get laps by activity Id o k response a status code equal to that given
+func (o *GetLapsByActivityIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetLapsByActivityIDOK) Error() string {
 	return fmt.Sprintf("[GET /activities/{id}/laps][%d] getLapsByActivityIdOK  %+v", 200, o.Payload)
 }
+
+func (o *GetLapsByActivityIDOK) String() string {
+	return fmt.Sprintf("[GET /activities/{id}/laps][%d] getLapsByActivityIdOK  %+v", 200, o.Payload)
+}
+
 func (o *GetLapsByActivityIDOK) GetPayload() []*models.Lap {
 	return o.Payload
 }
@@ -78,7 +109,8 @@ func NewGetLapsByActivityIDDefault(code int) *GetLapsByActivityIDDefault {
 	}
 }
 
-/* GetLapsByActivityIDDefault describes a response with status code -1, with default header values.
+/*
+GetLapsByActivityIDDefault describes a response with status code -1, with default header values.
 
 Unexpected error.
 */
@@ -93,9 +125,39 @@ func (o *GetLapsByActivityIDDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get laps by activity Id default response has a 2xx status code
+func (o *GetLapsByActivityIDDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get laps by activity Id default response has a 3xx status code
+func (o *GetLapsByActivityIDDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get laps by activity Id default response has a 4xx status code
+func (o *GetLapsByActivityIDDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get laps by activity Id default response has a 5xx status code
+func (o *GetLapsByActivityIDDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get laps by activity Id default response a status code equal to that given
+func (o *GetLapsByActivityIDDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetLapsByActivityIDDefault) Error() string {
 	return fmt.Sprintf("[GET /activities/{id}/laps][%d] getLapsByActivityId default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetLapsByActivityIDDefault) String() string {
+	return fmt.Sprintf("[GET /activities/{id}/laps][%d] getLapsByActivityId default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetLapsByActivityIDDefault) GetPayload() *models.Fault {
 	return o.Payload
 }

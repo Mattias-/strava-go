@@ -53,10 +53,12 @@ func NewGetSegmentByIDParamsWithHTTPClient(client *http.Client) *GetSegmentByIDP
 	}
 }
 
-/* GetSegmentByIDParams contains all the parameters to send to the API endpoint
-   for the get segment by Id operation.
+/*
+GetSegmentByIDParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get segment by Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetSegmentByIDParams struct {
 

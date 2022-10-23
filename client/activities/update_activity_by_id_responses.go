@@ -46,7 +46,8 @@ func NewUpdateActivityByIDOK() *UpdateActivityByIDOK {
 	return &UpdateActivityByIDOK{}
 }
 
-/* UpdateActivityByIDOK describes a response with status code 200, with default header values.
+/*
+UpdateActivityByIDOK describes a response with status code 200, with default header values.
 
 The activity's detailed representation.
 */
@@ -54,9 +55,39 @@ type UpdateActivityByIDOK struct {
 	Payload *models.DetailedActivity
 }
 
+// IsSuccess returns true when this update activity by Id o k response has a 2xx status code
+func (o *UpdateActivityByIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update activity by Id o k response has a 3xx status code
+func (o *UpdateActivityByIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update activity by Id o k response has a 4xx status code
+func (o *UpdateActivityByIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update activity by Id o k response has a 5xx status code
+func (o *UpdateActivityByIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update activity by Id o k response a status code equal to that given
+func (o *UpdateActivityByIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateActivityByIDOK) Error() string {
 	return fmt.Sprintf("[PUT /activities/{id}][%d] updateActivityByIdOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateActivityByIDOK) String() string {
+	return fmt.Sprintf("[PUT /activities/{id}][%d] updateActivityByIdOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateActivityByIDOK) GetPayload() *models.DetailedActivity {
 	return o.Payload
 }
@@ -80,7 +111,8 @@ func NewUpdateActivityByIDDefault(code int) *UpdateActivityByIDDefault {
 	}
 }
 
-/* UpdateActivityByIDDefault describes a response with status code -1, with default header values.
+/*
+UpdateActivityByIDDefault describes a response with status code -1, with default header values.
 
 Unexpected error.
 */
@@ -95,9 +127,39 @@ func (o *UpdateActivityByIDDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update activity by Id default response has a 2xx status code
+func (o *UpdateActivityByIDDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update activity by Id default response has a 3xx status code
+func (o *UpdateActivityByIDDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update activity by Id default response has a 4xx status code
+func (o *UpdateActivityByIDDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update activity by Id default response has a 5xx status code
+func (o *UpdateActivityByIDDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update activity by Id default response a status code equal to that given
+func (o *UpdateActivityByIDDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateActivityByIDDefault) Error() string {
 	return fmt.Sprintf("[PUT /activities/{id}][%d] updateActivityById default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateActivityByIDDefault) String() string {
+	return fmt.Sprintf("[PUT /activities/{id}][%d] updateActivityById default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateActivityByIDDefault) GetPayload() *models.Fault {
 	return o.Payload
 }

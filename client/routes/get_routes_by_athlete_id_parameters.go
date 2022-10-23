@@ -53,10 +53,12 @@ func NewGetRoutesByAthleteIDParamsWithHTTPClient(client *http.Client) *GetRoutes
 	}
 }
 
-/* GetRoutesByAthleteIDParams contains all the parameters to send to the API endpoint
-   for the get routes by athlete Id operation.
+/*
+GetRoutesByAthleteIDParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get routes by athlete Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutesByAthleteIDParams struct {
 

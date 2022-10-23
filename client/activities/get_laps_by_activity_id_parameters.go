@@ -53,10 +53,12 @@ func NewGetLapsByActivityIDParamsWithHTTPClient(client *http.Client) *GetLapsByA
 	}
 }
 
-/* GetLapsByActivityIDParams contains all the parameters to send to the API endpoint
-   for the get laps by activity Id operation.
+/*
+GetLapsByActivityIDParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get laps by activity Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLapsByActivityIDParams struct {
 

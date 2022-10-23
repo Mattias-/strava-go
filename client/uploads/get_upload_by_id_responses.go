@@ -46,7 +46,8 @@ func NewGetUploadByIDOK() *GetUploadByIDOK {
 	return &GetUploadByIDOK{}
 }
 
-/* GetUploadByIDOK describes a response with status code 200, with default header values.
+/*
+GetUploadByIDOK describes a response with status code 200, with default header values.
 
 Representation of the upload.
 */
@@ -54,9 +55,39 @@ type GetUploadByIDOK struct {
 	Payload *models.Upload
 }
 
+// IsSuccess returns true when this get upload by Id o k response has a 2xx status code
+func (o *GetUploadByIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get upload by Id o k response has a 3xx status code
+func (o *GetUploadByIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get upload by Id o k response has a 4xx status code
+func (o *GetUploadByIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get upload by Id o k response has a 5xx status code
+func (o *GetUploadByIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get upload by Id o k response a status code equal to that given
+func (o *GetUploadByIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetUploadByIDOK) Error() string {
 	return fmt.Sprintf("[GET /uploads/{uploadId}][%d] getUploadByIdOK  %+v", 200, o.Payload)
 }
+
+func (o *GetUploadByIDOK) String() string {
+	return fmt.Sprintf("[GET /uploads/{uploadId}][%d] getUploadByIdOK  %+v", 200, o.Payload)
+}
+
 func (o *GetUploadByIDOK) GetPayload() *models.Upload {
 	return o.Payload
 }
@@ -80,7 +111,8 @@ func NewGetUploadByIDDefault(code int) *GetUploadByIDDefault {
 	}
 }
 
-/* GetUploadByIDDefault describes a response with status code -1, with default header values.
+/*
+GetUploadByIDDefault describes a response with status code -1, with default header values.
 
 Unexpected error.
 */
@@ -95,9 +127,39 @@ func (o *GetUploadByIDDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get upload by Id default response has a 2xx status code
+func (o *GetUploadByIDDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get upload by Id default response has a 3xx status code
+func (o *GetUploadByIDDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get upload by Id default response has a 4xx status code
+func (o *GetUploadByIDDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get upload by Id default response has a 5xx status code
+func (o *GetUploadByIDDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get upload by Id default response a status code equal to that given
+func (o *GetUploadByIDDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetUploadByIDDefault) Error() string {
 	return fmt.Sprintf("[GET /uploads/{uploadId}][%d] getUploadById default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetUploadByIDDefault) String() string {
+	return fmt.Sprintf("[GET /uploads/{uploadId}][%d] getUploadById default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetUploadByIDDefault) GetPayload() *models.Fault {
 	return o.Payload
 }

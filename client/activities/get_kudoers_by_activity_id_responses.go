@@ -46,7 +46,8 @@ func NewGetKudoersByActivityIDOK() *GetKudoersByActivityIDOK {
 	return &GetKudoersByActivityIDOK{}
 }
 
-/* GetKudoersByActivityIDOK describes a response with status code 200, with default header values.
+/*
+GetKudoersByActivityIDOK describes a response with status code 200, with default header values.
 
 Comments.
 */
@@ -54,9 +55,39 @@ type GetKudoersByActivityIDOK struct {
 	Payload []*models.SummaryAthlete
 }
 
+// IsSuccess returns true when this get kudoers by activity Id o k response has a 2xx status code
+func (o *GetKudoersByActivityIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get kudoers by activity Id o k response has a 3xx status code
+func (o *GetKudoersByActivityIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get kudoers by activity Id o k response has a 4xx status code
+func (o *GetKudoersByActivityIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get kudoers by activity Id o k response has a 5xx status code
+func (o *GetKudoersByActivityIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get kudoers by activity Id o k response a status code equal to that given
+func (o *GetKudoersByActivityIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetKudoersByActivityIDOK) Error() string {
 	return fmt.Sprintf("[GET /activities/{id}/kudos][%d] getKudoersByActivityIdOK  %+v", 200, o.Payload)
 }
+
+func (o *GetKudoersByActivityIDOK) String() string {
+	return fmt.Sprintf("[GET /activities/{id}/kudos][%d] getKudoersByActivityIdOK  %+v", 200, o.Payload)
+}
+
 func (o *GetKudoersByActivityIDOK) GetPayload() []*models.SummaryAthlete {
 	return o.Payload
 }
@@ -78,7 +109,8 @@ func NewGetKudoersByActivityIDDefault(code int) *GetKudoersByActivityIDDefault {
 	}
 }
 
-/* GetKudoersByActivityIDDefault describes a response with status code -1, with default header values.
+/*
+GetKudoersByActivityIDDefault describes a response with status code -1, with default header values.
 
 Unexpected error.
 */
@@ -93,9 +125,39 @@ func (o *GetKudoersByActivityIDDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get kudoers by activity Id default response has a 2xx status code
+func (o *GetKudoersByActivityIDDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get kudoers by activity Id default response has a 3xx status code
+func (o *GetKudoersByActivityIDDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get kudoers by activity Id default response has a 4xx status code
+func (o *GetKudoersByActivityIDDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get kudoers by activity Id default response has a 5xx status code
+func (o *GetKudoersByActivityIDDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get kudoers by activity Id default response a status code equal to that given
+func (o *GetKudoersByActivityIDDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetKudoersByActivityIDDefault) Error() string {
 	return fmt.Sprintf("[GET /activities/{id}/kudos][%d] getKudoersByActivityId default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetKudoersByActivityIDDefault) String() string {
+	return fmt.Sprintf("[GET /activities/{id}/kudos][%d] getKudoersByActivityId default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetKudoersByActivityIDDefault) GetPayload() *models.Fault {
 	return o.Payload
 }

@@ -53,10 +53,12 @@ func NewGetSegmentEffortByIDParamsWithHTTPClient(client *http.Client) *GetSegmen
 	}
 }
 
-/* GetSegmentEffortByIDParams contains all the parameters to send to the API endpoint
-   for the get segment effort by Id operation.
+/*
+GetSegmentEffortByIDParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get segment effort by Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetSegmentEffortByIDParams struct {
 

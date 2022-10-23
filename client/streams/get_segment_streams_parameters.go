@@ -53,10 +53,12 @@ func NewGetSegmentStreamsParamsWithHTTPClient(client *http.Client) *GetSegmentSt
 	}
 }
 
-/* GetSegmentStreamsParams contains all the parameters to send to the API endpoint
-   for the get segment streams operation.
+/*
+GetSegmentStreamsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get segment streams operation.
+
+	Typically these are written to a http.Request.
 */
 type GetSegmentStreamsParams struct {
 

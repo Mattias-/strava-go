@@ -46,7 +46,8 @@ func NewGetCommentsByActivityIDOK() *GetCommentsByActivityIDOK {
 	return &GetCommentsByActivityIDOK{}
 }
 
-/* GetCommentsByActivityIDOK describes a response with status code 200, with default header values.
+/*
+GetCommentsByActivityIDOK describes a response with status code 200, with default header values.
 
 Comments.
 */
@@ -54,9 +55,39 @@ type GetCommentsByActivityIDOK struct {
 	Payload []*models.Comment
 }
 
+// IsSuccess returns true when this get comments by activity Id o k response has a 2xx status code
+func (o *GetCommentsByActivityIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get comments by activity Id o k response has a 3xx status code
+func (o *GetCommentsByActivityIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get comments by activity Id o k response has a 4xx status code
+func (o *GetCommentsByActivityIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get comments by activity Id o k response has a 5xx status code
+func (o *GetCommentsByActivityIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get comments by activity Id o k response a status code equal to that given
+func (o *GetCommentsByActivityIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetCommentsByActivityIDOK) Error() string {
 	return fmt.Sprintf("[GET /activities/{id}/comments][%d] getCommentsByActivityIdOK  %+v", 200, o.Payload)
 }
+
+func (o *GetCommentsByActivityIDOK) String() string {
+	return fmt.Sprintf("[GET /activities/{id}/comments][%d] getCommentsByActivityIdOK  %+v", 200, o.Payload)
+}
+
 func (o *GetCommentsByActivityIDOK) GetPayload() []*models.Comment {
 	return o.Payload
 }
@@ -78,7 +109,8 @@ func NewGetCommentsByActivityIDDefault(code int) *GetCommentsByActivityIDDefault
 	}
 }
 
-/* GetCommentsByActivityIDDefault describes a response with status code -1, with default header values.
+/*
+GetCommentsByActivityIDDefault describes a response with status code -1, with default header values.
 
 Unexpected error.
 */
@@ -93,9 +125,39 @@ func (o *GetCommentsByActivityIDDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get comments by activity Id default response has a 2xx status code
+func (o *GetCommentsByActivityIDDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get comments by activity Id default response has a 3xx status code
+func (o *GetCommentsByActivityIDDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get comments by activity Id default response has a 4xx status code
+func (o *GetCommentsByActivityIDDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get comments by activity Id default response has a 5xx status code
+func (o *GetCommentsByActivityIDDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get comments by activity Id default response a status code equal to that given
+func (o *GetCommentsByActivityIDDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetCommentsByActivityIDDefault) Error() string {
 	return fmt.Sprintf("[GET /activities/{id}/comments][%d] getCommentsByActivityId default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetCommentsByActivityIDDefault) String() string {
+	return fmt.Sprintf("[GET /activities/{id}/comments][%d] getCommentsByActivityId default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetCommentsByActivityIDDefault) GetPayload() *models.Fault {
 	return o.Payload
 }

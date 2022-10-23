@@ -53,10 +53,12 @@ func NewGetCommentsByActivityIDParamsWithHTTPClient(client *http.Client) *GetCom
 	}
 }
 
-/* GetCommentsByActivityIDParams contains all the parameters to send to the API endpoint
-   for the get comments by activity Id operation.
+/*
+GetCommentsByActivityIDParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get comments by activity Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetCommentsByActivityIDParams struct {
 

@@ -46,7 +46,8 @@ func NewGetActivityStreamsOK() *GetActivityStreamsOK {
 	return &GetActivityStreamsOK{}
 }
 
-/* GetActivityStreamsOK describes a response with status code 200, with default header values.
+/*
+GetActivityStreamsOK describes a response with status code 200, with default header values.
 
 The set of requested streams.
 */
@@ -54,9 +55,39 @@ type GetActivityStreamsOK struct {
 	Payload *models.StreamSet
 }
 
+// IsSuccess returns true when this get activity streams o k response has a 2xx status code
+func (o *GetActivityStreamsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get activity streams o k response has a 3xx status code
+func (o *GetActivityStreamsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get activity streams o k response has a 4xx status code
+func (o *GetActivityStreamsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get activity streams o k response has a 5xx status code
+func (o *GetActivityStreamsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get activity streams o k response a status code equal to that given
+func (o *GetActivityStreamsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetActivityStreamsOK) Error() string {
 	return fmt.Sprintf("[GET /activities/{id}/streams][%d] getActivityStreamsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetActivityStreamsOK) String() string {
+	return fmt.Sprintf("[GET /activities/{id}/streams][%d] getActivityStreamsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetActivityStreamsOK) GetPayload() *models.StreamSet {
 	return o.Payload
 }
@@ -80,7 +111,8 @@ func NewGetActivityStreamsDefault(code int) *GetActivityStreamsDefault {
 	}
 }
 
-/* GetActivityStreamsDefault describes a response with status code -1, with default header values.
+/*
+GetActivityStreamsDefault describes a response with status code -1, with default header values.
 
 Unexpected error.
 */
@@ -95,9 +127,39 @@ func (o *GetActivityStreamsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get activity streams default response has a 2xx status code
+func (o *GetActivityStreamsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get activity streams default response has a 3xx status code
+func (o *GetActivityStreamsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get activity streams default response has a 4xx status code
+func (o *GetActivityStreamsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get activity streams default response has a 5xx status code
+func (o *GetActivityStreamsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get activity streams default response a status code equal to that given
+func (o *GetActivityStreamsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetActivityStreamsDefault) Error() string {
 	return fmt.Sprintf("[GET /activities/{id}/streams][%d] getActivityStreams default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetActivityStreamsDefault) String() string {
+	return fmt.Sprintf("[GET /activities/{id}/streams][%d] getActivityStreams default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetActivityStreamsDefault) GetPayload() *models.Fault {
 	return o.Payload
 }

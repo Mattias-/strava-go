@@ -40,9 +40,9 @@ type ClientService interface {
 }
 
 /*
-  ExploreSegments explores segments
+ExploreSegments explores segments
 
-  Returns the top 10 segments matching a specified query.
+Returns the top 10 segments matching a specified query.
 */
 func (a *Client) ExploreSegments(params *ExploreSegmentsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ExploreSegmentsOK, error) {
 	// TODO: Validate the params before sending
@@ -80,9 +80,9 @@ func (a *Client) ExploreSegments(params *ExploreSegmentsParams, authInfo runtime
 }
 
 /*
-  GetLoggedInAthleteStarredSegments lists starred segments
+GetLoggedInAthleteStarredSegments lists starred segments
 
-  List of the authenticated athlete's starred segments. Private segments are filtered out unless requested by a token with read_all scope.
+List of the authenticated athlete's starred segments. Private segments are filtered out unless requested by a token with read_all scope.
 */
 func (a *Client) GetLoggedInAthleteStarredSegments(params *GetLoggedInAthleteStarredSegmentsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetLoggedInAthleteStarredSegmentsOK, error) {
 	// TODO: Validate the params before sending
@@ -120,9 +120,9 @@ func (a *Client) GetLoggedInAthleteStarredSegments(params *GetLoggedInAthleteSta
 }
 
 /*
-  GetSegmentByID gets segment
+GetSegmentByID gets segment
 
-  Returns the specified segment. read_all scope required in order to retrieve athlete-specific segment information, or to retrieve private segments.
+Returns the specified segment. read_all scope required in order to retrieve athlete-specific segment information, or to retrieve private segments.
 */
 func (a *Client) GetSegmentByID(params *GetSegmentByIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetSegmentByIDOK, error) {
 	// TODO: Validate the params before sending
@@ -160,9 +160,9 @@ func (a *Client) GetSegmentByID(params *GetSegmentByIDParams, authInfo runtime.C
 }
 
 /*
-  StarSegment stars segment
+StarSegment stars segment
 
-  Stars/Unstars the given segment for the authenticated athlete. Requires profile:write scope.
+Stars/Unstars the given segment for the authenticated athlete. Requires profile:write scope.
 */
 func (a *Client) StarSegment(params *StarSegmentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StarSegmentOK, error) {
 	// TODO: Validate the params before sending

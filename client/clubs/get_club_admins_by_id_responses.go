@@ -46,7 +46,8 @@ func NewGetClubAdminsByIDOK() *GetClubAdminsByIDOK {
 	return &GetClubAdminsByIDOK{}
 }
 
-/* GetClubAdminsByIDOK describes a response with status code 200, with default header values.
+/*
+GetClubAdminsByIDOK describes a response with status code 200, with default header values.
 
 A list of summary athlete representations.
 */
@@ -54,9 +55,39 @@ type GetClubAdminsByIDOK struct {
 	Payload []*models.SummaryAthlete
 }
 
+// IsSuccess returns true when this get club admins by Id o k response has a 2xx status code
+func (o *GetClubAdminsByIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get club admins by Id o k response has a 3xx status code
+func (o *GetClubAdminsByIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get club admins by Id o k response has a 4xx status code
+func (o *GetClubAdminsByIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get club admins by Id o k response has a 5xx status code
+func (o *GetClubAdminsByIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get club admins by Id o k response a status code equal to that given
+func (o *GetClubAdminsByIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetClubAdminsByIDOK) Error() string {
 	return fmt.Sprintf("[GET /clubs/{id}/admins][%d] getClubAdminsByIdOK  %+v", 200, o.Payload)
 }
+
+func (o *GetClubAdminsByIDOK) String() string {
+	return fmt.Sprintf("[GET /clubs/{id}/admins][%d] getClubAdminsByIdOK  %+v", 200, o.Payload)
+}
+
 func (o *GetClubAdminsByIDOK) GetPayload() []*models.SummaryAthlete {
 	return o.Payload
 }
@@ -78,7 +109,8 @@ func NewGetClubAdminsByIDDefault(code int) *GetClubAdminsByIDDefault {
 	}
 }
 
-/* GetClubAdminsByIDDefault describes a response with status code -1, with default header values.
+/*
+GetClubAdminsByIDDefault describes a response with status code -1, with default header values.
 
 Unexpected error.
 */
@@ -93,9 +125,39 @@ func (o *GetClubAdminsByIDDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get club admins by Id default response has a 2xx status code
+func (o *GetClubAdminsByIDDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get club admins by Id default response has a 3xx status code
+func (o *GetClubAdminsByIDDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get club admins by Id default response has a 4xx status code
+func (o *GetClubAdminsByIDDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get club admins by Id default response has a 5xx status code
+func (o *GetClubAdminsByIDDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get club admins by Id default response a status code equal to that given
+func (o *GetClubAdminsByIDDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetClubAdminsByIDDefault) Error() string {
 	return fmt.Sprintf("[GET /clubs/{id}/admins][%d] getClubAdminsById default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetClubAdminsByIDDefault) String() string {
+	return fmt.Sprintf("[GET /clubs/{id}/admins][%d] getClubAdminsById default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetClubAdminsByIDDefault) GetPayload() *models.Fault {
 	return o.Payload
 }

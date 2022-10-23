@@ -46,7 +46,8 @@ func NewUpdateLoggedInAthleteOK() *UpdateLoggedInAthleteOK {
 	return &UpdateLoggedInAthleteOK{}
 }
 
-/* UpdateLoggedInAthleteOK describes a response with status code 200, with default header values.
+/*
+UpdateLoggedInAthleteOK describes a response with status code 200, with default header values.
 
 Profile information for the authenticated athlete.
 */
@@ -54,9 +55,39 @@ type UpdateLoggedInAthleteOK struct {
 	Payload *models.DetailedAthlete
 }
 
+// IsSuccess returns true when this update logged in athlete o k response has a 2xx status code
+func (o *UpdateLoggedInAthleteOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update logged in athlete o k response has a 3xx status code
+func (o *UpdateLoggedInAthleteOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update logged in athlete o k response has a 4xx status code
+func (o *UpdateLoggedInAthleteOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update logged in athlete o k response has a 5xx status code
+func (o *UpdateLoggedInAthleteOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update logged in athlete o k response a status code equal to that given
+func (o *UpdateLoggedInAthleteOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateLoggedInAthleteOK) Error() string {
 	return fmt.Sprintf("[PUT /athlete][%d] updateLoggedInAthleteOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateLoggedInAthleteOK) String() string {
+	return fmt.Sprintf("[PUT /athlete][%d] updateLoggedInAthleteOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateLoggedInAthleteOK) GetPayload() *models.DetailedAthlete {
 	return o.Payload
 }
@@ -80,7 +111,8 @@ func NewUpdateLoggedInAthleteDefault(code int) *UpdateLoggedInAthleteDefault {
 	}
 }
 
-/* UpdateLoggedInAthleteDefault describes a response with status code -1, with default header values.
+/*
+UpdateLoggedInAthleteDefault describes a response with status code -1, with default header values.
 
 Unexpected error.
 */
@@ -95,9 +127,39 @@ func (o *UpdateLoggedInAthleteDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update logged in athlete default response has a 2xx status code
+func (o *UpdateLoggedInAthleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update logged in athlete default response has a 3xx status code
+func (o *UpdateLoggedInAthleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update logged in athlete default response has a 4xx status code
+func (o *UpdateLoggedInAthleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update logged in athlete default response has a 5xx status code
+func (o *UpdateLoggedInAthleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update logged in athlete default response a status code equal to that given
+func (o *UpdateLoggedInAthleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateLoggedInAthleteDefault) Error() string {
 	return fmt.Sprintf("[PUT /athlete][%d] updateLoggedInAthlete default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateLoggedInAthleteDefault) String() string {
+	return fmt.Sprintf("[PUT /athlete][%d] updateLoggedInAthlete default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateLoggedInAthleteDefault) GetPayload() *models.Fault {
 	return o.Payload
 }

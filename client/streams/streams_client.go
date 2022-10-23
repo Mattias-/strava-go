@@ -40,9 +40,9 @@ type ClientService interface {
 }
 
 /*
-  GetActivityStreams gets activity streams
+GetActivityStreams gets activity streams
 
-  Returns the given activity's streams. Requires activity:read scope. Requires activity:read_all scope for Only Me activities.
+Returns the given activity's streams. Requires activity:read scope. Requires activity:read_all scope for Only Me activities.
 */
 func (a *Client) GetActivityStreams(params *GetActivityStreamsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetActivityStreamsOK, error) {
 	// TODO: Validate the params before sending
@@ -80,9 +80,9 @@ func (a *Client) GetActivityStreams(params *GetActivityStreamsParams, authInfo r
 }
 
 /*
-  GetRouteStreams gets route streams
+GetRouteStreams gets route streams
 
-  Returns the given route's streams. Requires read_all scope for private routes.
+Returns the given route's streams. Requires read_all scope for private routes.
 */
 func (a *Client) GetRouteStreams(params *GetRouteStreamsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRouteStreamsOK, error) {
 	// TODO: Validate the params before sending
@@ -120,9 +120,9 @@ func (a *Client) GetRouteStreams(params *GetRouteStreamsParams, authInfo runtime
 }
 
 /*
-  GetSegmentEffortStreams gets segment effort streams
+GetSegmentEffortStreams gets segment effort streams
 
-  Returns a set of streams for a segment effort completed by the authenticated athlete. Requires read_all scope.
+Returns a set of streams for a segment effort completed by the authenticated athlete. Requires read_all scope.
 */
 func (a *Client) GetSegmentEffortStreams(params *GetSegmentEffortStreamsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetSegmentEffortStreamsOK, error) {
 	// TODO: Validate the params before sending
@@ -160,9 +160,9 @@ func (a *Client) GetSegmentEffortStreams(params *GetSegmentEffortStreamsParams, 
 }
 
 /*
-  GetSegmentStreams gets segment streams
+GetSegmentStreams gets segment streams
 
-  Returns the given segment's streams. Requires read_all scope for private segments.
+Returns the given segment's streams. Requires read_all scope for private segments.
 */
 func (a *Client) GetSegmentStreams(params *GetSegmentStreamsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetSegmentStreamsOK, error) {
 	// TODO: Validate the params before sending

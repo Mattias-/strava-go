@@ -53,10 +53,12 @@ func NewGetLoggedInAthleteStarredSegmentsParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/* GetLoggedInAthleteStarredSegmentsParams contains all the parameters to send to the API endpoint
-   for the get logged in athlete starred segments operation.
+/*
+GetLoggedInAthleteStarredSegmentsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get logged in athlete starred segments operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLoggedInAthleteStarredSegmentsParams struct {
 

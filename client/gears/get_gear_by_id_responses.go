@@ -46,7 +46,8 @@ func NewGetGearByIDOK() *GetGearByIDOK {
 	return &GetGearByIDOK{}
 }
 
-/* GetGearByIDOK describes a response with status code 200, with default header values.
+/*
+GetGearByIDOK describes a response with status code 200, with default header values.
 
 A representation of the gear.
 */
@@ -54,9 +55,39 @@ type GetGearByIDOK struct {
 	Payload *models.DetailedGear
 }
 
+// IsSuccess returns true when this get gear by Id o k response has a 2xx status code
+func (o *GetGearByIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get gear by Id o k response has a 3xx status code
+func (o *GetGearByIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gear by Id o k response has a 4xx status code
+func (o *GetGearByIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gear by Id o k response has a 5xx status code
+func (o *GetGearByIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gear by Id o k response a status code equal to that given
+func (o *GetGearByIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetGearByIDOK) Error() string {
 	return fmt.Sprintf("[GET /gear/{id}][%d] getGearByIdOK  %+v", 200, o.Payload)
 }
+
+func (o *GetGearByIDOK) String() string {
+	return fmt.Sprintf("[GET /gear/{id}][%d] getGearByIdOK  %+v", 200, o.Payload)
+}
+
 func (o *GetGearByIDOK) GetPayload() *models.DetailedGear {
 	return o.Payload
 }
@@ -80,7 +111,8 @@ func NewGetGearByIDDefault(code int) *GetGearByIDDefault {
 	}
 }
 
-/* GetGearByIDDefault describes a response with status code -1, with default header values.
+/*
+GetGearByIDDefault describes a response with status code -1, with default header values.
 
 Unexpected error.
 */
@@ -95,9 +127,39 @@ func (o *GetGearByIDDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get gear by Id default response has a 2xx status code
+func (o *GetGearByIDDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get gear by Id default response has a 3xx status code
+func (o *GetGearByIDDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get gear by Id default response has a 4xx status code
+func (o *GetGearByIDDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get gear by Id default response has a 5xx status code
+func (o *GetGearByIDDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get gear by Id default response a status code equal to that given
+func (o *GetGearByIDDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetGearByIDDefault) Error() string {
 	return fmt.Sprintf("[GET /gear/{id}][%d] getGearById default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetGearByIDDefault) String() string {
+	return fmt.Sprintf("[GET /gear/{id}][%d] getGearById default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetGearByIDDefault) GetPayload() *models.Fault {
 	return o.Payload
 }

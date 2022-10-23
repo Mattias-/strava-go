@@ -40,9 +40,9 @@ type ClientService interface {
 }
 
 /*
-  GetLoggedInAthlete gets authenticated athlete
+GetLoggedInAthlete gets authenticated athlete
 
-  Returns the currently authenticated athlete. Tokens with profile:read_all scope will receive a detailed athlete representation; all others will receive a summary representation.
+Returns the currently authenticated athlete. Tokens with profile:read_all scope will receive a detailed athlete representation; all others will receive a summary representation.
 */
 func (a *Client) GetLoggedInAthlete(params *GetLoggedInAthleteParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetLoggedInAthleteOK, error) {
 	// TODO: Validate the params before sending
@@ -80,9 +80,9 @@ func (a *Client) GetLoggedInAthlete(params *GetLoggedInAthleteParams, authInfo r
 }
 
 /*
-  GetLoggedInAthleteZones gets zones
+GetLoggedInAthleteZones gets zones
 
-  Returns the the authenticated athlete's heart rate and power zones. Requires profile:read_all.
+Returns the the authenticated athlete's heart rate and power zones. Requires profile:read_all.
 */
 func (a *Client) GetLoggedInAthleteZones(params *GetLoggedInAthleteZonesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetLoggedInAthleteZonesOK, error) {
 	// TODO: Validate the params before sending
@@ -120,9 +120,9 @@ func (a *Client) GetLoggedInAthleteZones(params *GetLoggedInAthleteZonesParams, 
 }
 
 /*
-  GetStats gets athlete stats
+GetStats gets athlete stats
 
-  Returns the activity stats of an athlete. Only includes data from activities set to Everyone visibilty.
+Returns the activity stats of an athlete. Only includes data from activities set to Everyone visibilty.
 */
 func (a *Client) GetStats(params *GetStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetStatsOK, error) {
 	// TODO: Validate the params before sending
@@ -160,9 +160,9 @@ func (a *Client) GetStats(params *GetStatsParams, authInfo runtime.ClientAuthInf
 }
 
 /*
-  UpdateLoggedInAthlete updates athlete
+UpdateLoggedInAthlete updates athlete
 
-  Update the currently authenticated athlete. Requires profile:write scope.
+Update the currently authenticated athlete. Requires profile:write scope.
 */
 func (a *Client) UpdateLoggedInAthlete(params *UpdateLoggedInAthleteParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateLoggedInAthleteOK, error) {
 	// TODO: Validate the params before sending

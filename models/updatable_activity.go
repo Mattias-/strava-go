@@ -33,6 +33,9 @@ type UpdatableActivity struct {
 	// The name of the activity
 	Name string `json:"name,omitempty"`
 
+	// sport type
+	SportType SportType `json:"sport_type,omitempty"`
+
 	// Whether this activity was recorded on a training machine
 	Trainer bool `json:"trainer,omitempty"`
 
@@ -44,6 +47,10 @@ type UpdatableActivity struct {
 func (m *UpdatableActivity) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateSportType(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateType(formats); err != nil {
 		res = append(res, err)
 	}
@@ -51,6 +58,23 @@ func (m *UpdatableActivity) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *UpdatableActivity) validateSportType(formats strfmt.Registry) error {
+	if swag.IsZero(m.SportType) { // not required
+		return nil
+	}
+
+	if err := m.SportType.Validate(formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("sport_type")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("sport_type")
+		}
+		return err
+	}
+
 	return nil
 }
 
@@ -75,6 +99,10 @@ func (m *UpdatableActivity) validateType(formats strfmt.Registry) error {
 func (m *UpdatableActivity) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateSportType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateType(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -82,6 +110,20 @@ func (m *UpdatableActivity) ContextValidate(ctx context.Context, formats strfmt.
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *UpdatableActivity) contextValidateSportType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := m.SportType.ContextValidate(ctx, formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("sport_type")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("sport_type")
+		}
+		return err
+	}
+
 	return nil
 }
 

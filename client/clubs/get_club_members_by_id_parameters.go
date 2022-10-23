@@ -53,10 +53,12 @@ func NewGetClubMembersByIDParamsWithHTTPClient(client *http.Client) *GetClubMemb
 	}
 }
 
-/* GetClubMembersByIDParams contains all the parameters to send to the API endpoint
-   for the get club members by Id operation.
+/*
+GetClubMembersByIDParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get club members by Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetClubMembersByIDParams struct {
 

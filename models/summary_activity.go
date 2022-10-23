@@ -105,6 +105,9 @@ type SummaryActivity struct {
 	// Whether this activity is private
 	Private bool `json:"private,omitempty"`
 
+	// sport type
+	SportType SportType `json:"sport_type,omitempty"`
+
 	// The time at which the activity was started.
 	// Format: date-time
 	StartDate strfmt.DateTime `json:"start_date,omitempty"`
@@ -211,6 +214,8 @@ func (m *SummaryActivity) UnmarshalJSON(raw []byte) error {
 
 		Private bool `json:"private,omitempty"`
 
+		SportType SportType `json:"sport_type,omitempty"`
+
 		StartDate strfmt.DateTime `json:"start_date,omitempty"`
 
 		StartDateLocal strfmt.DateTime `json:"start_date_local,omitempty"`
@@ -294,6 +299,8 @@ func (m *SummaryActivity) UnmarshalJSON(raw []byte) error {
 	m.PhotoCount = dataAO1.PhotoCount
 
 	m.Private = dataAO1.Private
+
+	m.SportType = dataAO1.SportType
 
 	m.StartDate = dataAO1.StartDate
 
@@ -388,6 +395,8 @@ func (m SummaryActivity) MarshalJSON() ([]byte, error) {
 
 		Private bool `json:"private,omitempty"`
 
+		SportType SportType `json:"sport_type,omitempty"`
+
 		StartDate strfmt.DateTime `json:"start_date,omitempty"`
 
 		StartDateLocal strfmt.DateTime `json:"start_date_local,omitempty"`
@@ -469,6 +478,8 @@ func (m SummaryActivity) MarshalJSON() ([]byte, error) {
 
 	dataAO1.Private = m.Private
 
+	dataAO1.SportType = m.SportType
+
 	dataAO1.StartDate = m.StartDate
 
 	dataAO1.StartDateLocal = m.StartDateLocal
@@ -523,6 +534,10 @@ func (m *SummaryActivity) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMap(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSportType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -619,6 +634,24 @@ func (m *SummaryActivity) validateMap(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *SummaryActivity) validateSportType(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.SportType) { // not required
+		return nil
+	}
+
+	if err := m.SportType.Validate(formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("sport_type")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("sport_type")
+		}
+		return err
+	}
+
+	return nil
+}
+
 func (m *SummaryActivity) validateStartDate(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.StartDate) { // not required
@@ -702,6 +735,10 @@ func (m *SummaryActivity) ContextValidate(ctx context.Context, formats strfmt.Re
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateSportType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateStartLatlng(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -757,6 +794,20 @@ func (m *SummaryActivity) contextValidateMap(ctx context.Context, formats strfmt
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *SummaryActivity) contextValidateSportType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := m.SportType.ContextValidate(ctx, formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("sport_type")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("sport_type")
+		}
+		return err
 	}
 
 	return nil

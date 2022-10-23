@@ -46,7 +46,8 @@ func NewGetLoggedInAthleteActivitiesOK() *GetLoggedInAthleteActivitiesOK {
 	return &GetLoggedInAthleteActivitiesOK{}
 }
 
-/* GetLoggedInAthleteActivitiesOK describes a response with status code 200, with default header values.
+/*
+GetLoggedInAthleteActivitiesOK describes a response with status code 200, with default header values.
 
 The authenticated athlete's activities
 */
@@ -54,9 +55,39 @@ type GetLoggedInAthleteActivitiesOK struct {
 	Payload []*models.SummaryActivity
 }
 
+// IsSuccess returns true when this get logged in athlete activities o k response has a 2xx status code
+func (o *GetLoggedInAthleteActivitiesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get logged in athlete activities o k response has a 3xx status code
+func (o *GetLoggedInAthleteActivitiesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get logged in athlete activities o k response has a 4xx status code
+func (o *GetLoggedInAthleteActivitiesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get logged in athlete activities o k response has a 5xx status code
+func (o *GetLoggedInAthleteActivitiesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get logged in athlete activities o k response a status code equal to that given
+func (o *GetLoggedInAthleteActivitiesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetLoggedInAthleteActivitiesOK) Error() string {
 	return fmt.Sprintf("[GET /athlete/activities][%d] getLoggedInAthleteActivitiesOK  %+v", 200, o.Payload)
 }
+
+func (o *GetLoggedInAthleteActivitiesOK) String() string {
+	return fmt.Sprintf("[GET /athlete/activities][%d] getLoggedInAthleteActivitiesOK  %+v", 200, o.Payload)
+}
+
 func (o *GetLoggedInAthleteActivitiesOK) GetPayload() []*models.SummaryActivity {
 	return o.Payload
 }
@@ -78,7 +109,8 @@ func NewGetLoggedInAthleteActivitiesDefault(code int) *GetLoggedInAthleteActivit
 	}
 }
 
-/* GetLoggedInAthleteActivitiesDefault describes a response with status code -1, with default header values.
+/*
+GetLoggedInAthleteActivitiesDefault describes a response with status code -1, with default header values.
 
 Unexpected error.
 */
@@ -93,9 +125,39 @@ func (o *GetLoggedInAthleteActivitiesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get logged in athlete activities default response has a 2xx status code
+func (o *GetLoggedInAthleteActivitiesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get logged in athlete activities default response has a 3xx status code
+func (o *GetLoggedInAthleteActivitiesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get logged in athlete activities default response has a 4xx status code
+func (o *GetLoggedInAthleteActivitiesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get logged in athlete activities default response has a 5xx status code
+func (o *GetLoggedInAthleteActivitiesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get logged in athlete activities default response a status code equal to that given
+func (o *GetLoggedInAthleteActivitiesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetLoggedInAthleteActivitiesDefault) Error() string {
 	return fmt.Sprintf("[GET /athlete/activities][%d] getLoggedInAthleteActivities default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetLoggedInAthleteActivitiesDefault) String() string {
+	return fmt.Sprintf("[GET /athlete/activities][%d] getLoggedInAthleteActivities default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetLoggedInAthleteActivitiesDefault) GetPayload() *models.Fault {
 	return o.Payload
 }

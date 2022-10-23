@@ -53,10 +53,12 @@ func NewExploreSegmentsParamsWithHTTPClient(client *http.Client) *ExploreSegment
 	}
 }
 
-/* ExploreSegmentsParams contains all the parameters to send to the API endpoint
-   for the explore segments operation.
+/*
+ExploreSegmentsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the explore segments operation.
+
+	Typically these are written to a http.Request.
 */
 type ExploreSegmentsParams struct {
 

@@ -36,9 +36,9 @@ type ClientService interface {
 }
 
 /*
-  CreateUpload uploads activity
+CreateUpload uploads activity
 
-  Uploads a new data file to create an activity from. Requires activity:write scope.
+Uploads a new data file to create an activity from. Requires activity:write scope.
 */
 func (a *Client) CreateUpload(params *CreateUploadParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateUploadCreated, error) {
 	// TODO: Validate the params before sending
@@ -76,9 +76,9 @@ func (a *Client) CreateUpload(params *CreateUploadParams, authInfo runtime.Clien
 }
 
 /*
-  GetUploadByID gets upload
+GetUploadByID gets upload
 
-  Returns an upload for a given identifier. Requires activity:write scope.
+Returns an upload for a given identifier. Requires activity:write scope.
 */
 func (a *Client) GetUploadByID(params *GetUploadByIDParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetUploadByIDOK, error) {
 	// TODO: Validate the params before sending

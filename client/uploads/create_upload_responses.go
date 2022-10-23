@@ -46,7 +46,8 @@ func NewCreateUploadCreated() *CreateUploadCreated {
 	return &CreateUploadCreated{}
 }
 
-/* CreateUploadCreated describes a response with status code 201, with default header values.
+/*
+CreateUploadCreated describes a response with status code 201, with default header values.
 
 A representation of the created upload.
 */
@@ -54,9 +55,39 @@ type CreateUploadCreated struct {
 	Payload *models.Upload
 }
 
+// IsSuccess returns true when this create upload created response has a 2xx status code
+func (o *CreateUploadCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create upload created response has a 3xx status code
+func (o *CreateUploadCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create upload created response has a 4xx status code
+func (o *CreateUploadCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create upload created response has a 5xx status code
+func (o *CreateUploadCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create upload created response a status code equal to that given
+func (o *CreateUploadCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *CreateUploadCreated) Error() string {
 	return fmt.Sprintf("[POST /uploads][%d] createUploadCreated  %+v", 201, o.Payload)
 }
+
+func (o *CreateUploadCreated) String() string {
+	return fmt.Sprintf("[POST /uploads][%d] createUploadCreated  %+v", 201, o.Payload)
+}
+
 func (o *CreateUploadCreated) GetPayload() *models.Upload {
 	return o.Payload
 }
@@ -80,7 +111,8 @@ func NewCreateUploadDefault(code int) *CreateUploadDefault {
 	}
 }
 
-/* CreateUploadDefault describes a response with status code -1, with default header values.
+/*
+CreateUploadDefault describes a response with status code -1, with default header values.
 
 Unexpected error.
 */
@@ -95,9 +127,39 @@ func (o *CreateUploadDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this create upload default response has a 2xx status code
+func (o *CreateUploadDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this create upload default response has a 3xx status code
+func (o *CreateUploadDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this create upload default response has a 4xx status code
+func (o *CreateUploadDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this create upload default response has a 5xx status code
+func (o *CreateUploadDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this create upload default response a status code equal to that given
+func (o *CreateUploadDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *CreateUploadDefault) Error() string {
 	return fmt.Sprintf("[POST /uploads][%d] createUpload default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CreateUploadDefault) String() string {
+	return fmt.Sprintf("[POST /uploads][%d] createUpload default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CreateUploadDefault) GetPayload() *models.Fault {
 	return o.Payload
 }

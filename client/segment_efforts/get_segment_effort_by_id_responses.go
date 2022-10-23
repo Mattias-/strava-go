@@ -46,7 +46,8 @@ func NewGetSegmentEffortByIDOK() *GetSegmentEffortByIDOK {
 	return &GetSegmentEffortByIDOK{}
 }
 
-/* GetSegmentEffortByIDOK describes a response with status code 200, with default header values.
+/*
+GetSegmentEffortByIDOK describes a response with status code 200, with default header values.
 
 Representation of a segment effort.
 */
@@ -54,9 +55,39 @@ type GetSegmentEffortByIDOK struct {
 	Payload *models.DetailedSegmentEffort
 }
 
+// IsSuccess returns true when this get segment effort by Id o k response has a 2xx status code
+func (o *GetSegmentEffortByIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get segment effort by Id o k response has a 3xx status code
+func (o *GetSegmentEffortByIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get segment effort by Id o k response has a 4xx status code
+func (o *GetSegmentEffortByIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get segment effort by Id o k response has a 5xx status code
+func (o *GetSegmentEffortByIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get segment effort by Id o k response a status code equal to that given
+func (o *GetSegmentEffortByIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetSegmentEffortByIDOK) Error() string {
 	return fmt.Sprintf("[GET /segment_efforts/{id}][%d] getSegmentEffortByIdOK  %+v", 200, o.Payload)
 }
+
+func (o *GetSegmentEffortByIDOK) String() string {
+	return fmt.Sprintf("[GET /segment_efforts/{id}][%d] getSegmentEffortByIdOK  %+v", 200, o.Payload)
+}
+
 func (o *GetSegmentEffortByIDOK) GetPayload() *models.DetailedSegmentEffort {
 	return o.Payload
 }
@@ -80,7 +111,8 @@ func NewGetSegmentEffortByIDDefault(code int) *GetSegmentEffortByIDDefault {
 	}
 }
 
-/* GetSegmentEffortByIDDefault describes a response with status code -1, with default header values.
+/*
+GetSegmentEffortByIDDefault describes a response with status code -1, with default header values.
 
 Unexpected error.
 */
@@ -95,9 +127,39 @@ func (o *GetSegmentEffortByIDDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get segment effort by Id default response has a 2xx status code
+func (o *GetSegmentEffortByIDDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get segment effort by Id default response has a 3xx status code
+func (o *GetSegmentEffortByIDDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get segment effort by Id default response has a 4xx status code
+func (o *GetSegmentEffortByIDDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get segment effort by Id default response has a 5xx status code
+func (o *GetSegmentEffortByIDDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get segment effort by Id default response a status code equal to that given
+func (o *GetSegmentEffortByIDDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetSegmentEffortByIDDefault) Error() string {
 	return fmt.Sprintf("[GET /segment_efforts/{id}][%d] getSegmentEffortById default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetSegmentEffortByIDDefault) String() string {
+	return fmt.Sprintf("[GET /segment_efforts/{id}][%d] getSegmentEffortById default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetSegmentEffortByIDDefault) GetPayload() *models.Fault {
 	return o.Payload
 }
