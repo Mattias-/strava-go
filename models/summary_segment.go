@@ -25,10 +25,10 @@ type SummarySegment struct {
 	ActivityType string `json:"activity_type,omitempty"`
 
 	// athlete pr effort
-	AthletePrEffort *SummarySegmentEffort `json:"athlete_pr_effort,omitempty"`
+	AthletePrEffort *SummaryPRSegmentEffort `json:"athlete_pr_effort,omitempty"`
 
 	// athlete segment stats
-	AthleteSegmentStats *SummaryPRSegmentEffort `json:"athlete_segment_stats,omitempty"`
+	AthleteSegmentStats *SummarySegmentEffort `json:"athlete_segment_stats,omitempty"`
 
 	// The segment's average grade, in percents
 	AverageGrade float32 `json:"average_grade,omitempty"`

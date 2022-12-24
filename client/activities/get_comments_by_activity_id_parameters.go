@@ -62,6 +62,12 @@ GetCommentsByActivityIDParams contains all the parameters to send to the API end
 */
 type GetCommentsByActivityIDParams struct {
 
+	/* AfterCursor.
+
+	   Cursor of the last item in the previous page of results, used to request the subsequent page of results.  When omitted, the first page of results is fetched.
+	*/
+	AfterCursor *string
+
 	/* ID.
 
 	   The identifier of the activity.
@@ -72,13 +78,21 @@ type GetCommentsByActivityIDParams struct {
 
 	/* Page.
 
-	   Page number. Defaults to 1.
+	   Deprecated. Prefer to use after_cursor.
 	*/
 	Page *int64
 
-	/* PerPage.
+	/* PageSize.
 
 	   Number of items per page. Defaults to 30.
+
+	   Default: 30
+	*/
+	PageSize *int64
+
+	/* PerPage.
+
+	   Deprecated. Prefer to use page_size.
 
 	   Default: 30
 	*/
@@ -102,11 +116,14 @@ func (o *GetCommentsByActivityIDParams) WithDefaults() *GetCommentsByActivityIDP
 // All values with no default are reset to their zero value.
 func (o *GetCommentsByActivityIDParams) SetDefaults() {
 	var (
+		pageSizeDefault = int64(30)
+
 		perPageDefault = int64(30)
 	)
 
 	val := GetCommentsByActivityIDParams{
-		PerPage: &perPageDefault,
+		PageSize: &pageSizeDefault,
+		PerPage:  &perPageDefault,
 	}
 
 	val.timeout = o.timeout
@@ -148,6 +165,17 @@ func (o *GetCommentsByActivityIDParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithAfterCursor adds the afterCursor to the get comments by activity Id params
+func (o *GetCommentsByActivityIDParams) WithAfterCursor(afterCursor *string) *GetCommentsByActivityIDParams {
+	o.SetAfterCursor(afterCursor)
+	return o
+}
+
+// SetAfterCursor adds the afterCursor to the get comments by activity Id params
+func (o *GetCommentsByActivityIDParams) SetAfterCursor(afterCursor *string) {
+	o.AfterCursor = afterCursor
+}
+
 // WithID adds the id to the get comments by activity Id params
 func (o *GetCommentsByActivityIDParams) WithID(id int64) *GetCommentsByActivityIDParams {
 	o.SetID(id)
@@ -170,6 +198,17 @@ func (o *GetCommentsByActivityIDParams) SetPage(page *int64) {
 	o.Page = page
 }
 
+// WithPageSize adds the pageSize to the get comments by activity Id params
+func (o *GetCommentsByActivityIDParams) WithPageSize(pageSize *int64) *GetCommentsByActivityIDParams {
+	o.SetPageSize(pageSize)
+	return o
+}
+
+// SetPageSize adds the pageSize to the get comments by activity Id params
+func (o *GetCommentsByActivityIDParams) SetPageSize(pageSize *int64) {
+	o.PageSize = pageSize
+}
+
 // WithPerPage adds the perPage to the get comments by activity Id params
 func (o *GetCommentsByActivityIDParams) WithPerPage(perPage *int64) *GetCommentsByActivityIDParams {
 	o.SetPerPage(perPage)
@@ -189,6 +228,23 @@ func (o *GetCommentsByActivityIDParams) WriteToRequest(r runtime.ClientRequest, 
 	}
 	var res []error
 
+	if o.AfterCursor != nil {
+
+		// query param after_cursor
+		var qrAfterCursor string
+
+		if o.AfterCursor != nil {
+			qrAfterCursor = *o.AfterCursor
+		}
+		qAfterCursor := qrAfterCursor
+		if qAfterCursor != "" {
+
+			if err := r.SetQueryParam("after_cursor", qAfterCursor); err != nil {
+				return err
+			}
+		}
+	}
+
 	// path param id
 	if err := r.SetPathParam("id", swag.FormatInt64(o.ID)); err != nil {
 		return err
@@ -206,6 +262,23 @@ func (o *GetCommentsByActivityIDParams) WriteToRequest(r runtime.ClientRequest, 
 		if qPage != "" {
 
 			if err := r.SetQueryParam("page", qPage); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.PageSize != nil {
+
+		// query param page_size
+		var qrPageSize int64
+
+		if o.PageSize != nil {
+			qrPageSize = *o.PageSize
+		}
+		qPageSize := swag.FormatInt64(qrPageSize)
+		if qPageSize != "" {
+
+			if err := r.SetQueryParam("page_size", qPageSize); err != nil {
 				return err
 			}
 		}

@@ -1776,10 +1776,30 @@
             "format": "int64"
           },
           {
-            "$ref": "#/parameters/page"
+            "name": "page",
+            "in": "query",
+            "description": "Deprecated. Prefer to use after_cursor.",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/perPage"
+            "name": "per_page",
+            "in": "query",
+            "description": "Deprecated. Prefer to use page_size.",
+            "type": "integer",
+            "default": 30
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "Number of items per page. Defaults to 30.",
+            "type": "integer",
+            "default": 30
+          },
+          {
+            "name": "after_cursor",
+            "in": "query",
+            "description": "Cursor of the last item in the previous page of results, used to request the subsequent page of results.  When omitted, the first page of results is fetched.",
+            "type": "string"
           }
         ],
         "tags": [
@@ -1807,7 +1827,8 @@
                   "athlete": {
                     "firstname": "Peter",
                     "lastname": "S"
-                  }
+                  },
+                  "cursor": "abc123%20"
                 }
               ]
             }
