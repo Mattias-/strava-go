@@ -4,7 +4,7 @@ set -euo pipefail
 SWAGGER_URL="https://developers.strava.com/swagger/swagger.json"
 
 main() {
-    ensure_go_swagger "v0.30.3" "darwin_arm64"
+    ensure_go_swagger "v0.30.4" "darwin_arm64"
     rm_gen
     gen
 }
