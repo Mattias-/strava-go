@@ -80,6 +80,11 @@ func (o *GetSegmentStreamsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get segment streams o k response
+func (o *GetSegmentStreamsOK) Code() int {
+	return 200
+}
+
 func (o *GetSegmentStreamsOK) Error() string {
 	return fmt.Sprintf("[GET /segments/{id}/streams][%d] getSegmentStreamsOK  %+v", 200, o.Payload)
 }
@@ -122,11 +127,6 @@ type GetSegmentStreamsDefault struct {
 	Payload *models.Fault
 }
 
-// Code gets the status code for the get segment streams default response
-func (o *GetSegmentStreamsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get segment streams default response has a 2xx status code
 func (o *GetSegmentStreamsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -150,6 +150,11 @@ func (o *GetSegmentStreamsDefault) IsServerError() bool {
 // IsCode returns true when this get segment streams default response a status code equal to that given
 func (o *GetSegmentStreamsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get segment streams default response
+func (o *GetSegmentStreamsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetSegmentStreamsDefault) Error() string {

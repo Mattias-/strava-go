@@ -80,6 +80,11 @@ func (o *GetSegmentByIDOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get segment by Id o k response
+func (o *GetSegmentByIDOK) Code() int {
+	return 200
+}
+
 func (o *GetSegmentByIDOK) Error() string {
 	return fmt.Sprintf("[GET /segments/{id}][%d] getSegmentByIdOK  %+v", 200, o.Payload)
 }
@@ -122,11 +127,6 @@ type GetSegmentByIDDefault struct {
 	Payload *models.Fault
 }
 
-// Code gets the status code for the get segment by Id default response
-func (o *GetSegmentByIDDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get segment by Id default response has a 2xx status code
 func (o *GetSegmentByIDDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -150,6 +150,11 @@ func (o *GetSegmentByIDDefault) IsServerError() bool {
 // IsCode returns true when this get segment by Id default response a status code equal to that given
 func (o *GetSegmentByIDDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get segment by Id default response
+func (o *GetSegmentByIDDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetSegmentByIDDefault) Error() string {

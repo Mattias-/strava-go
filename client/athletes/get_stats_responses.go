@@ -80,6 +80,11 @@ func (o *GetStatsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get stats o k response
+func (o *GetStatsOK) Code() int {
+	return 200
+}
+
 func (o *GetStatsOK) Error() string {
 	return fmt.Sprintf("[GET /athletes/{id}/stats][%d] getStatsOK  %+v", 200, o.Payload)
 }
@@ -122,11 +127,6 @@ type GetStatsDefault struct {
 	Payload *models.Fault
 }
 
-// Code gets the status code for the get stats default response
-func (o *GetStatsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get stats default response has a 2xx status code
 func (o *GetStatsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -150,6 +150,11 @@ func (o *GetStatsDefault) IsServerError() bool {
 // IsCode returns true when this get stats default response a status code equal to that given
 func (o *GetStatsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get stats default response
+func (o *GetStatsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetStatsDefault) Error() string {

@@ -80,6 +80,11 @@ func (o *GetActivityByIDOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get activity by Id o k response
+func (o *GetActivityByIDOK) Code() int {
+	return 200
+}
+
 func (o *GetActivityByIDOK) Error() string {
 	return fmt.Sprintf("[GET /activities/{id}][%d] getActivityByIdOK  %+v", 200, o.Payload)
 }
@@ -122,11 +127,6 @@ type GetActivityByIDDefault struct {
 	Payload *models.Fault
 }
 
-// Code gets the status code for the get activity by Id default response
-func (o *GetActivityByIDDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get activity by Id default response has a 2xx status code
 func (o *GetActivityByIDDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -150,6 +150,11 @@ func (o *GetActivityByIDDefault) IsServerError() bool {
 // IsCode returns true when this get activity by Id default response a status code equal to that given
 func (o *GetActivityByIDDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get activity by Id default response
+func (o *GetActivityByIDDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetActivityByIDDefault) Error() string {

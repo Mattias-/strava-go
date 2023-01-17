@@ -80,6 +80,11 @@ func (o *CreateUploadCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the create upload created response
+func (o *CreateUploadCreated) Code() int {
+	return 201
+}
+
 func (o *CreateUploadCreated) Error() string {
 	return fmt.Sprintf("[POST /uploads][%d] createUploadCreated  %+v", 201, o.Payload)
 }
@@ -122,11 +127,6 @@ type CreateUploadDefault struct {
 	Payload *models.Fault
 }
 
-// Code gets the status code for the create upload default response
-func (o *CreateUploadDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create upload default response has a 2xx status code
 func (o *CreateUploadDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -150,6 +150,11 @@ func (o *CreateUploadDefault) IsServerError() bool {
 // IsCode returns true when this create upload default response a status code equal to that given
 func (o *CreateUploadDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create upload default response
+func (o *CreateUploadDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateUploadDefault) Error() string {

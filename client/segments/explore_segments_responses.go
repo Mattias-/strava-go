@@ -80,6 +80,11 @@ func (o *ExploreSegmentsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the explore segments o k response
+func (o *ExploreSegmentsOK) Code() int {
+	return 200
+}
+
 func (o *ExploreSegmentsOK) Error() string {
 	return fmt.Sprintf("[GET /segments/explore][%d] exploreSegmentsOK  %+v", 200, o.Payload)
 }
@@ -122,11 +127,6 @@ type ExploreSegmentsDefault struct {
 	Payload *models.Fault
 }
 
-// Code gets the status code for the explore segments default response
-func (o *ExploreSegmentsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this explore segments default response has a 2xx status code
 func (o *ExploreSegmentsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -150,6 +150,11 @@ func (o *ExploreSegmentsDefault) IsServerError() bool {
 // IsCode returns true when this explore segments default response a status code equal to that given
 func (o *ExploreSegmentsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the explore segments default response
+func (o *ExploreSegmentsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ExploreSegmentsDefault) Error() string {

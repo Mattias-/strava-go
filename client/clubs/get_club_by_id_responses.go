@@ -80,6 +80,11 @@ func (o *GetClubByIDOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get club by Id o k response
+func (o *GetClubByIDOK) Code() int {
+	return 200
+}
+
 func (o *GetClubByIDOK) Error() string {
 	return fmt.Sprintf("[GET /clubs/{id}][%d] getClubByIdOK  %+v", 200, o.Payload)
 }
@@ -122,11 +127,6 @@ type GetClubByIDDefault struct {
 	Payload *models.Fault
 }
 
-// Code gets the status code for the get club by Id default response
-func (o *GetClubByIDDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get club by Id default response has a 2xx status code
 func (o *GetClubByIDDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -150,6 +150,11 @@ func (o *GetClubByIDDefault) IsServerError() bool {
 // IsCode returns true when this get club by Id default response a status code equal to that given
 func (o *GetClubByIDDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get club by Id default response
+func (o *GetClubByIDDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetClubByIDDefault) Error() string {

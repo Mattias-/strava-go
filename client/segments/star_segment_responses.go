@@ -80,6 +80,11 @@ func (o *StarSegmentOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the star segment o k response
+func (o *StarSegmentOK) Code() int {
+	return 200
+}
+
 func (o *StarSegmentOK) Error() string {
 	return fmt.Sprintf("[PUT /segments/{id}/starred][%d] starSegmentOK  %+v", 200, o.Payload)
 }
@@ -122,11 +127,6 @@ type StarSegmentDefault struct {
 	Payload *models.Fault
 }
 
-// Code gets the status code for the star segment default response
-func (o *StarSegmentDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this star segment default response has a 2xx status code
 func (o *StarSegmentDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -150,6 +150,11 @@ func (o *StarSegmentDefault) IsServerError() bool {
 // IsCode returns true when this star segment default response a status code equal to that given
 func (o *StarSegmentDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the star segment default response
+func (o *StarSegmentDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *StarSegmentDefault) Error() string {

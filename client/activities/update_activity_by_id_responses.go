@@ -80,6 +80,11 @@ func (o *UpdateActivityByIDOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update activity by Id o k response
+func (o *UpdateActivityByIDOK) Code() int {
+	return 200
+}
+
 func (o *UpdateActivityByIDOK) Error() string {
 	return fmt.Sprintf("[PUT /activities/{id}][%d] updateActivityByIdOK  %+v", 200, o.Payload)
 }
@@ -122,11 +127,6 @@ type UpdateActivityByIDDefault struct {
 	Payload *models.Fault
 }
 
-// Code gets the status code for the update activity by Id default response
-func (o *UpdateActivityByIDDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update activity by Id default response has a 2xx status code
 func (o *UpdateActivityByIDDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -150,6 +150,11 @@ func (o *UpdateActivityByIDDefault) IsServerError() bool {
 // IsCode returns true when this update activity by Id default response a status code equal to that given
 func (o *UpdateActivityByIDDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update activity by Id default response
+func (o *UpdateActivityByIDDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateActivityByIDDefault) Error() string {

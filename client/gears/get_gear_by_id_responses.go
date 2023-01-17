@@ -80,6 +80,11 @@ func (o *GetGearByIDOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get gear by Id o k response
+func (o *GetGearByIDOK) Code() int {
+	return 200
+}
+
 func (o *GetGearByIDOK) Error() string {
 	return fmt.Sprintf("[GET /gear/{id}][%d] getGearByIdOK  %+v", 200, o.Payload)
 }
@@ -122,11 +127,6 @@ type GetGearByIDDefault struct {
 	Payload *models.Fault
 }
 
-// Code gets the status code for the get gear by Id default response
-func (o *GetGearByIDDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get gear by Id default response has a 2xx status code
 func (o *GetGearByIDDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -150,6 +150,11 @@ func (o *GetGearByIDDefault) IsServerError() bool {
 // IsCode returns true when this get gear by Id default response a status code equal to that given
 func (o *GetGearByIDDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get gear by Id default response
+func (o *GetGearByIDDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetGearByIDDefault) Error() string {

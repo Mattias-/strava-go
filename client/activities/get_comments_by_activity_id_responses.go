@@ -80,6 +80,11 @@ func (o *GetCommentsByActivityIDOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get comments by activity Id o k response
+func (o *GetCommentsByActivityIDOK) Code() int {
+	return 200
+}
+
 func (o *GetCommentsByActivityIDOK) Error() string {
 	return fmt.Sprintf("[GET /activities/{id}/comments][%d] getCommentsByActivityIdOK  %+v", 200, o.Payload)
 }
@@ -120,11 +125,6 @@ type GetCommentsByActivityIDDefault struct {
 	Payload *models.Fault
 }
 
-// Code gets the status code for the get comments by activity Id default response
-func (o *GetCommentsByActivityIDDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get comments by activity Id default response has a 2xx status code
 func (o *GetCommentsByActivityIDDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -148,6 +148,11 @@ func (o *GetCommentsByActivityIDDefault) IsServerError() bool {
 // IsCode returns true when this get comments by activity Id default response a status code equal to that given
 func (o *GetCommentsByActivityIDDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get comments by activity Id default response
+func (o *GetCommentsByActivityIDDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetCommentsByActivityIDDefault) Error() string {

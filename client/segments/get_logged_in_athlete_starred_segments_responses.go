@@ -80,6 +80,11 @@ func (o *GetLoggedInAthleteStarredSegmentsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get logged in athlete starred segments o k response
+func (o *GetLoggedInAthleteStarredSegmentsOK) Code() int {
+	return 200
+}
+
 func (o *GetLoggedInAthleteStarredSegmentsOK) Error() string {
 	return fmt.Sprintf("[GET /segments/starred][%d] getLoggedInAthleteStarredSegmentsOK  %+v", 200, o.Payload)
 }
@@ -120,11 +125,6 @@ type GetLoggedInAthleteStarredSegmentsDefault struct {
 	Payload *models.Fault
 }
 
-// Code gets the status code for the get logged in athlete starred segments default response
-func (o *GetLoggedInAthleteStarredSegmentsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get logged in athlete starred segments default response has a 2xx status code
 func (o *GetLoggedInAthleteStarredSegmentsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -148,6 +148,11 @@ func (o *GetLoggedInAthleteStarredSegmentsDefault) IsServerError() bool {
 // IsCode returns true when this get logged in athlete starred segments default response a status code equal to that given
 func (o *GetLoggedInAthleteStarredSegmentsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get logged in athlete starred segments default response
+func (o *GetLoggedInAthleteStarredSegmentsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetLoggedInAthleteStarredSegmentsDefault) Error() string {

@@ -80,6 +80,11 @@ func (o *CreateActivityCreated) IsCode(code int) bool {
 	return code == 201
 }
 
+// Code gets the status code for the create activity created response
+func (o *CreateActivityCreated) Code() int {
+	return 201
+}
+
 func (o *CreateActivityCreated) Error() string {
 	return fmt.Sprintf("[POST /activities][%d] createActivityCreated  %+v", 201, o.Payload)
 }
@@ -122,11 +127,6 @@ type CreateActivityDefault struct {
 	Payload *models.Fault
 }
 
-// Code gets the status code for the create activity default response
-func (o *CreateActivityDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create activity default response has a 2xx status code
 func (o *CreateActivityDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -150,6 +150,11 @@ func (o *CreateActivityDefault) IsServerError() bool {
 // IsCode returns true when this create activity default response a status code equal to that given
 func (o *CreateActivityDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create activity default response
+func (o *CreateActivityDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateActivityDefault) Error() string {

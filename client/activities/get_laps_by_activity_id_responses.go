@@ -80,6 +80,11 @@ func (o *GetLapsByActivityIDOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get laps by activity Id o k response
+func (o *GetLapsByActivityIDOK) Code() int {
+	return 200
+}
+
 func (o *GetLapsByActivityIDOK) Error() string {
 	return fmt.Sprintf("[GET /activities/{id}/laps][%d] getLapsByActivityIdOK  %+v", 200, o.Payload)
 }
@@ -120,11 +125,6 @@ type GetLapsByActivityIDDefault struct {
 	Payload *models.Fault
 }
 
-// Code gets the status code for the get laps by activity Id default response
-func (o *GetLapsByActivityIDDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get laps by activity Id default response has a 2xx status code
 func (o *GetLapsByActivityIDDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -148,6 +148,11 @@ func (o *GetLapsByActivityIDDefault) IsServerError() bool {
 // IsCode returns true when this get laps by activity Id default response a status code equal to that given
 func (o *GetLapsByActivityIDDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get laps by activity Id default response
+func (o *GetLapsByActivityIDDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetLapsByActivityIDDefault) Error() string {

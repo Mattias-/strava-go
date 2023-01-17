@@ -80,6 +80,11 @@ func (o *GetLoggedInAthleteZonesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get logged in athlete zones o k response
+func (o *GetLoggedInAthleteZonesOK) Code() int {
+	return 200
+}
+
 func (o *GetLoggedInAthleteZonesOK) Error() string {
 	return fmt.Sprintf("[GET /athlete/zones][%d] getLoggedInAthleteZonesOK  %+v", 200, o.Payload)
 }
@@ -122,11 +127,6 @@ type GetLoggedInAthleteZonesDefault struct {
 	Payload *models.Fault
 }
 
-// Code gets the status code for the get logged in athlete zones default response
-func (o *GetLoggedInAthleteZonesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get logged in athlete zones default response has a 2xx status code
 func (o *GetLoggedInAthleteZonesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -150,6 +150,11 @@ func (o *GetLoggedInAthleteZonesDefault) IsServerError() bool {
 // IsCode returns true when this get logged in athlete zones default response a status code equal to that given
 func (o *GetLoggedInAthleteZonesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get logged in athlete zones default response
+func (o *GetLoggedInAthleteZonesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetLoggedInAthleteZonesDefault) Error() string {

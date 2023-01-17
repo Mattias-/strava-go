@@ -80,6 +80,11 @@ func (o *GetEffortsBySegmentIDOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get efforts by segment Id o k response
+func (o *GetEffortsBySegmentIDOK) Code() int {
+	return 200
+}
+
 func (o *GetEffortsBySegmentIDOK) Error() string {
 	return fmt.Sprintf("[GET /segment_efforts][%d] getEffortsBySegmentIdOK  %+v", 200, o.Payload)
 }
@@ -120,11 +125,6 @@ type GetEffortsBySegmentIDDefault struct {
 	Payload *models.Fault
 }
 
-// Code gets the status code for the get efforts by segment Id default response
-func (o *GetEffortsBySegmentIDDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get efforts by segment Id default response has a 2xx status code
 func (o *GetEffortsBySegmentIDDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -148,6 +148,11 @@ func (o *GetEffortsBySegmentIDDefault) IsServerError() bool {
 // IsCode returns true when this get efforts by segment Id default response a status code equal to that given
 func (o *GetEffortsBySegmentIDDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get efforts by segment Id default response
+func (o *GetEffortsBySegmentIDDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetEffortsBySegmentIDDefault) Error() string {

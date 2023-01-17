@@ -80,6 +80,11 @@ func (o *GetRoutesByAthleteIDOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get routes by athlete Id o k response
+func (o *GetRoutesByAthleteIDOK) Code() int {
+	return 200
+}
+
 func (o *GetRoutesByAthleteIDOK) Error() string {
 	return fmt.Sprintf("[GET /athletes/{id}/routes][%d] getRoutesByAthleteIdOK  %+v", 200, o.Payload)
 }
@@ -120,11 +125,6 @@ type GetRoutesByAthleteIDDefault struct {
 	Payload *models.Fault
 }
 
-// Code gets the status code for the get routes by athlete Id default response
-func (o *GetRoutesByAthleteIDDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get routes by athlete Id default response has a 2xx status code
 func (o *GetRoutesByAthleteIDDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -148,6 +148,11 @@ func (o *GetRoutesByAthleteIDDefault) IsServerError() bool {
 // IsCode returns true when this get routes by athlete Id default response a status code equal to that given
 func (o *GetRoutesByAthleteIDDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get routes by athlete Id default response
+func (o *GetRoutesByAthleteIDDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRoutesByAthleteIDDefault) Error() string {
