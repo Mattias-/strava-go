@@ -36,6 +36,9 @@ const (
 	// SportTypeBackcountrySki captures enum value "BackcountrySki"
 	SportTypeBackcountrySki SportType = "BackcountrySki"
 
+	// SportTypeBadminton captures enum value "Badminton"
+	SportTypeBadminton SportType = "Badminton"
+
 	// SportTypeCanoeing captures enum value "Canoeing"
 	SportTypeCanoeing SportType = "Canoeing"
 
@@ -60,6 +63,9 @@ const (
 	// SportTypeHandcycle captures enum value "Handcycle"
 	SportTypeHandcycle SportType = "Handcycle"
 
+	// SportTypeHighIntensityIntervalTraining captures enum value "HighIntensityIntervalTraining"
+	SportTypeHighIntensityIntervalTraining SportType = "HighIntensityIntervalTraining"
+
 	// SportTypeHike captures enum value "Hike"
 	SportTypeHike SportType = "Hike"
 
@@ -80,6 +86,15 @@ const (
 
 	// SportTypeNordicSki captures enum value "NordicSki"
 	SportTypeNordicSki SportType = "NordicSki"
+
+	// SportTypePickleball captures enum value "Pickleball"
+	SportTypePickleball SportType = "Pickleball"
+
+	// SportTypePilates captures enum value "Pilates"
+	SportTypePilates SportType = "Pilates"
+
+	// SportTypeRacquetball captures enum value "Racquetball"
+	SportTypeRacquetball SportType = "Racquetball"
 
 	// SportTypeRide captures enum value "Ride"
 	SportTypeRide SportType = "Ride"
@@ -111,6 +126,9 @@ const (
 	// SportTypeSoccer captures enum value "Soccer"
 	SportTypeSoccer SportType = "Soccer"
 
+	// SportTypeSquash captures enum value "Squash"
+	SportTypeSquash SportType = "Squash"
+
 	// SportTypeStairStepper captures enum value "StairStepper"
 	SportTypeStairStepper SportType = "StairStepper"
 
@@ -123,6 +141,12 @@ const (
 	// SportTypeSwim captures enum value "Swim"
 	SportTypeSwim SportType = "Swim"
 
+	// SportTypeTableTennis captures enum value "TableTennis"
+	SportTypeTableTennis SportType = "TableTennis"
+
+	// SportTypeTennis captures enum value "Tennis"
+	SportTypeTennis SportType = "Tennis"
+
 	// SportTypeTrailRun captures enum value "TrailRun"
 	SportTypeTrailRun SportType = "TrailRun"
 
@@ -131,6 +155,9 @@ const (
 
 	// SportTypeVirtualRide captures enum value "VirtualRide"
 	SportTypeVirtualRide SportType = "VirtualRide"
+
+	// SportTypeVirtualRow captures enum value "VirtualRow"
+	SportTypeVirtualRow SportType = "VirtualRow"
 
 	// SportTypeVirtualRun captures enum value "VirtualRun"
 	SportTypeVirtualRun SportType = "VirtualRun"
@@ -159,7 +186,7 @@ var sportTypeEnum []interface{}
 
 func init() {
 	var res []SportType
-	if err := json.Unmarshal([]byte(`["AlpineSki","BackcountrySki","Canoeing","Crossfit","EBikeRide","Elliptical","EMountainBikeRide","Golf","GravelRide","Handcycle","Hike","IceSkate","InlineSkate","Kayaking","Kitesurf","MountainBikeRide","NordicSki","Ride","RockClimbing","RollerSki","Rowing","Run","Sail","Skateboard","Snowboard","Snowshoe","Soccer","StairStepper","StandUpPaddling","Surfing","Swim","TrailRun","Velomobile","VirtualRide","VirtualRun","Walk","WeightTraining","Wheelchair","Windsurf","Workout","Yoga"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AlpineSki","BackcountrySki","Badminton","Canoeing","Crossfit","EBikeRide","Elliptical","EMountainBikeRide","Golf","GravelRide","Handcycle","HighIntensityIntervalTraining","Hike","IceSkate","InlineSkate","Kayaking","Kitesurf","MountainBikeRide","NordicSki","Pickleball","Pilates","Racquetball","Ride","RockClimbing","RollerSki","Rowing","Run","Sail","Skateboard","Snowboard","Snowshoe","Soccer","Squash","StairStepper","StandUpPaddling","Surfing","Swim","TableTennis","Tennis","TrailRun","Velomobile","VirtualRide","VirtualRow","VirtualRun","Walk","WeightTraining","Wheelchair","Windsurf","Workout","Yoga"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
