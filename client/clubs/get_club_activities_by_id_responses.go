@@ -52,7 +52,7 @@ GetClubActivitiesByIDOK describes a response with status code 200, with default 
 A list of activities.
 */
 type GetClubActivitiesByIDOK struct {
-	Payload []*models.SummaryActivity
+	Payload []*models.ClubActivity
 }
 
 // IsSuccess returns true when this get club activities by Id o k response has a 2xx status code
@@ -93,7 +93,7 @@ func (o *GetClubActivitiesByIDOK) String() string {
 	return fmt.Sprintf("[GET /clubs/{id}/activities][%d] getClubActivitiesByIdOK  %+v", 200, o.Payload)
 }
 
-func (o *GetClubActivitiesByIDOK) GetPayload() []*models.SummaryActivity {
+func (o *GetClubActivitiesByIDOK) GetPayload() []*models.ClubActivity {
 	return o.Payload
 }
 

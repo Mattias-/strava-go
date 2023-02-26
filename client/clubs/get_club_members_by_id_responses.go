@@ -49,10 +49,10 @@ func NewGetClubMembersByIDOK() *GetClubMembersByIDOK {
 /*
 GetClubMembersByIDOK describes a response with status code 200, with default header values.
 
-A list of summary athlete representations.
+A list of club athlete representations.
 */
 type GetClubMembersByIDOK struct {
-	Payload []*models.SummaryAthlete
+	Payload []*models.ClubAthlete
 }
 
 // IsSuccess returns true when this get club members by Id o k response has a 2xx status code
@@ -93,7 +93,7 @@ func (o *GetClubMembersByIDOK) String() string {
 	return fmt.Sprintf("[GET /clubs/{id}/members][%d] getClubMembersByIdOK  %+v", 200, o.Payload)
 }
 
-func (o *GetClubMembersByIDOK) GetPayload() []*models.SummaryAthlete {
+func (o *GetClubMembersByIDOK) GetPayload() []*models.ClubAthlete {
 	return o.Payload
 }
 
