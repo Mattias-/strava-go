@@ -217,6 +217,11 @@ func (m *Route) ContextValidate(ctx context.Context, formats strfmt.Registry) er
 func (m *Route) contextValidateAthlete(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Athlete != nil {
+
+		if swag.IsZero(m.Athlete) { // not required
+			return nil
+		}
+
 		if err := m.Athlete.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("athlete")
@@ -233,6 +238,11 @@ func (m *Route) contextValidateAthlete(ctx context.Context, formats strfmt.Regis
 func (m *Route) contextValidateMap(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Map != nil {
+
+		if swag.IsZero(m.Map) { // not required
+			return nil
+		}
+
 		if err := m.Map.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("map")
@@ -251,6 +261,11 @@ func (m *Route) contextValidateSegments(ctx context.Context, formats strfmt.Regi
 	for i := 0; i < len(m.Segments); i++ {
 
 		if m.Segments[i] != nil {
+
+			if swag.IsZero(m.Segments[i]) { // not required
+				return nil
+			}
+
 			if err := m.Segments[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("segments" + "." + strconv.Itoa(i))

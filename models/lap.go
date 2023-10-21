@@ -185,6 +185,11 @@ func (m *Lap) ContextValidate(ctx context.Context, formats strfmt.Registry) erro
 func (m *Lap) contextValidateActivity(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Activity != nil {
+
+		if swag.IsZero(m.Activity) { // not required
+			return nil
+		}
+
 		if err := m.Activity.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("activity")
@@ -201,6 +206,11 @@ func (m *Lap) contextValidateActivity(ctx context.Context, formats strfmt.Regist
 func (m *Lap) contextValidateAthlete(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Athlete != nil {
+
+		if swag.IsZero(m.Athlete) { // not required
+			return nil
+		}
+
 		if err := m.Athlete.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("athlete")

@@ -386,6 +386,11 @@ func (m *DetailedSegmentEffort) ContextValidate(ctx context.Context, formats str
 func (m *DetailedSegmentEffort) contextValidateActivity(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Activity != nil {
+
+		if swag.IsZero(m.Activity) { // not required
+			return nil
+		}
+
 		if err := m.Activity.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("activity")
@@ -402,6 +407,11 @@ func (m *DetailedSegmentEffort) contextValidateActivity(ctx context.Context, for
 func (m *DetailedSegmentEffort) contextValidateAthlete(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Athlete != nil {
+
+		if swag.IsZero(m.Athlete) { // not required
+			return nil
+		}
+
 		if err := m.Athlete.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("athlete")
@@ -418,6 +428,11 @@ func (m *DetailedSegmentEffort) contextValidateAthlete(ctx context.Context, form
 func (m *DetailedSegmentEffort) contextValidateSegment(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Segment != nil {
+
+		if swag.IsZero(m.Segment) { // not required
+			return nil
+		}
+
 		if err := m.Segment.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("segment")

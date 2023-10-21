@@ -306,6 +306,10 @@ func (m *SummaryClub) contextValidateActivityTypes(ctx context.Context, formats 
 
 	for i := 0; i < len(m.ActivityTypes); i++ {
 
+		if swag.IsZero(m.ActivityTypes[i]) { // not required
+			return nil
+		}
+
 		if err := m.ActivityTypes[i].ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("activity_types" + "." + strconv.Itoa(i))

@@ -327,6 +327,11 @@ func (m *DetailedAthlete) contextValidateBikes(ctx context.Context, formats strf
 	for i := 0; i < len(m.Bikes); i++ {
 
 		if m.Bikes[i] != nil {
+
+			if swag.IsZero(m.Bikes[i]) { // not required
+				return nil
+			}
+
 			if err := m.Bikes[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("bikes" + "." + strconv.Itoa(i))
@@ -347,6 +352,11 @@ func (m *DetailedAthlete) contextValidateClubs(ctx context.Context, formats strf
 	for i := 0; i < len(m.Clubs); i++ {
 
 		if m.Clubs[i] != nil {
+
+			if swag.IsZero(m.Clubs[i]) { // not required
+				return nil
+			}
+
 			if err := m.Clubs[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("clubs" + "." + strconv.Itoa(i))
@@ -367,6 +377,11 @@ func (m *DetailedAthlete) contextValidateShoes(ctx context.Context, formats strf
 	for i := 0; i < len(m.Shoes); i++ {
 
 		if m.Shoes[i] != nil {
+
+			if swag.IsZero(m.Shoes[i]) { // not required
+				return nil
+			}
+
 			if err := m.Shoes[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("shoes" + "." + strconv.Itoa(i))
