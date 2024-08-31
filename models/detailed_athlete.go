@@ -38,7 +38,7 @@ type DetailedAthlete struct {
 	Ftp int64 `json:"ftp,omitempty"`
 
 	// The athlete's preferred unit system.
-	// Enum: [feet meters]
+	// Enum: ["feet","meters"]
 	MeasurementPreference string `json:"measurement_preference,omitempty"`
 
 	// The athlete's shoes.

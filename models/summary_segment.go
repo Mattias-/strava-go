@@ -21,7 +21,7 @@ import (
 type SummarySegment struct {
 
 	// activity type
-	// Enum: [Ride Run]
+	// Enum: ["Ride","Run"]
 	ActivityType string `json:"activity_type,omitempty"`
 
 	// athlete pr effort

@@ -50,7 +50,7 @@ type SummaryClub struct {
 	ProfileMedium string `json:"profile_medium,omitempty"`
 
 	// Deprecated. Prefer to use activity_types.
-	// Enum: [cycling running triathlon other]
+	// Enum: ["cycling","running","triathlon","other"]
 	SportType string `json:"sport_type,omitempty"`
 
 	// The club's state or geographical region.

@@ -50,7 +50,7 @@ type SummaryAthlete struct {
 	ResourceState int64 `json:"resource_state,omitempty"`
 
 	// The athlete's sex.
-	// Enum: [M F]
+	// Enum: ["M","F"]
 	Sex string `json:"sex,omitempty"`
 
 	// The athlete's state or geographical region.

@@ -39,7 +39,7 @@ type ActivityZone struct {
 	SensorBased bool `json:"sensor_based,omitempty"`
 
 	// type
-	// Enum: [heartrate power]
+	// Enum: ["heartrate","power"]
 	Type string `json:"type,omitempty"`
 }
 

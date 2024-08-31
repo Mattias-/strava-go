@@ -28,7 +28,7 @@ type DetailedClub struct {
 	FollowingCount int64 `json:"following_count,omitempty"`
 
 	// The membership status of the logged-in athlete.
-	// Enum: [member pending]
+	// Enum: ["member","pending"]
 	Membership string `json:"membership,omitempty"`
 
 	// Whether the currently logged-in athlete is the owner of this club.

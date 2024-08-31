@@ -3,7 +3,7 @@ SHELL := /usr/bin/env bash -o errexit -o pipefail -o nounset
 
 OS_NAME := $(shell uname -s | tr A-Z a-z)
 ARCH := $(shell uname -m)
-GO_SWAGGER_VERSION="v0.30.5"
+GO_SWAGGER_VERSION="v0.31.0"
 GO_SWAGGER_URL=https://github.com/go-swagger/go-swagger/releases/download/$(GO_SWAGGER_VERSION)/swagger_$(OS_NAME)_$(ARCH)
 SWAGGER_URL=https://developers.strava.com/swagger/swagger.json
 
